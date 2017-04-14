@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en"> 
+<head> 
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>主页</title> 
+<link rel="stylesheet" href="{% static 'pm/css/base.css' %}" >
+<link rel="stylesheet" href="{% static 'pm/css/custom/uimaker/easyui.css' %}">
+<link rel="stylesheet" href="{% static 'pm/css/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'pm/css/custom/uimaker/icon.css' %}">
+<style type="text/css">
+	.aaaa div{
+		height: 60px;
+		text-align: center;
+		font-size: 24px;
+	}
+	
+</style>
+</head> 
+<body>
+    	<div id="bd ">
+		   	<div id="p" class="easyui-panel" title="活动参与详情" style="width:100%;padding:10px;">
+				<div style="display: inline-block;">
+					<blockquote style="padding: 0px 10px;margin-left: 40px;">
+						<span style="font-size: 14px;">项目名称 : </span><span id="name" name="name"><strong>班主任干训班</strong></span>
+					</blockquote>
+					<blockquote style="padding: 0px 10px;margin-left: 40px;">
+						<span style="font-size: 14px;">项目时间 : </span><span id="start_date" name="start_date"><strong>2016.5.1至2016.6.1</strong></span>
+					</blockquote>
+				</div>
+				<div style="float: right;margin-right: 40%;">
+			   		<blockquote style="padding: 0px 10px;margin-left: 40px;">
+						<span style="font-size: 14px;">项目申报人 : </span><span id="applicant" name="applicant"><strong>张老师</strong></span>
+					</blockquote>
+					<blockquote style="padding: 0px 10px;margin-left: 40px;">
+						<span style="font-size: 14px;">项目学分 : </span><span id="credit" name="credit"><strong>5</strong></span>
+					</blockquote>
+				</div>
+				<div>
+					<blockquote style="padding: 0px 10px;margin-left: 40px;">
+						<span style="font-size: 14px;">班级名称 : </span><span><strong>班主任干训班</strong></span>
+					</blockquote>
+				</div>
+				<hr>
+				<div style="display: inline-block;width: 815px">
+					<blockquote style="padding: 0px 10px;margin-left: 40px;">
+						<span style="font-size: 14px;">项目内容 : </span>
+						<ul style="float: right;margin-top: 3px" id="content" name="content">
+							<li><strong>1、继续深入开展创先争优活动；</strong></li>
+							<li><strong>2、扎实开展核心价值观教育实践活动；</strong></li>
+							<li><strong>3、坚持从严教育干部，提高学习培训覆盖面和实效性，结合重点工作适时举行专题培训，优化干部知识结构，开阔干部思维视野</strong></li>
+							<li><strong>4、坚持以人为本、按需施教，联系实际、学以致用，全员培训、突出重点的原则</strong></li>
+						</ul>
+					</blockquote>
+				</div>
+				<hr>
+				<div style="width: 93%;margin: 0 auto;padding-bottom:20px;text-align: center;">
+					<div id="p" class="easyui-panel" title="关于文化的定义<br>活动名称" style="width:100%;padding:10px;" data-options="headerCls:'aaaa'">
+						<div style="display: inline-block;margin-left: 40px">
+							<p style="margin-left: 30px"><span style="font-size: 14px">主讲老师 : </span><span id="teacher" name="teacher"><strong>郑旺</strong></span></p>
+							<p style="margin-left: 30px"><span style="font-size: 14px">活动时间 : </span><span id="start_date" name="start_date"><strong>2016-5-20  10：00～11：00</strong></span></p>
+							<p style="margin-left: 30px"><span style="font-size: 14px">活动类型 : </span><span id="style" name="style"><strong>学习观摩</strong></span></p>
+							<p ><span style="font-size: 14px">作业截止日期 : </span><span id="homework_deadline" name="homework_deadline"><strong>2016-05-20</strong></span></p>
+						</div>
+						<div style="display: inline-block;float: right;margin-right: 5%;width: 50%;">
+							<p ><span style="font-size: 14px">签到情况 : </span></p>
+							
+							<div class="col-md-3" style="display: inline-block;text-align: center;">
+								<span style="border-bottom: 1px solid #EB9A88;font-size: 24px;padding: 5px 10px 5px 10px;color: #EB9A88" id="attend" name="attend">7</span>
+								<div style="padding-top: 5px">
+	                                <small>签到</small>
+	                            </div>
+							</div>
+							<div class="col-md-3" style="display: inline-block;text-align: center;">
+							<span style="border-bottom: 1px solid #D65CD2;font-size: 24px;padding: 5px 10px 5px 10px;color: #D65CD2" id="attend" name="attend">1</span>
+								<div style="padding-top: 5px">
+	                                <small>缺勤</small>
+	                            </div>
+							</div>
+							<div class="col-md-3" style="display: inline-block;text-align: center;">
+							<span style="border-bottom: 1px solid #ED94BA;font-size: 24px;padding: 5px 10px 5px 10px;color: #ED94BA" id="attend" name="attend">2</span>
+								<div style="padding-top: 5px">
+	                                <small>请假</small>
+	                            </div>
+							</div>
+							<div class="col-md-3" style="display: inline-block;text-align: center;">
+							<span style="border-bottom: 1px solid #8862D0;font-size: 24px;padding: 5px 10px 5px 10px;color: #8862D0" id="attend" name="attend">10</span>
+								<div style="padding-top: 5px">
+	                                <small>共计</small>
+	                            </div>
+							</div>
+						</div>
+					</div>
+			    </div>
+				<div class="container" style="width:93%;">
+					<div id="tb" style="padding:0 30px;">
+					    <div class="opt-buttons" >
+				            <a href="#" class="easyui-linkbutton" >导出</a>
+				        </div>
+					</div>
+					<div style="margin-top: 20px;">
+						<table id="dg" style="width:100%;height:529px;" title="线下活动列表" data-options="rownumbers:true,singleSelect:false,autoRowHeight:false,pagination:true,fitColumns:true,striped:true,checkOnSelect:false,selectOnCheck:false,collapsible:true,toolbar:'#tb', pageSize:10">
+			            <thead>
+			                <tr>
+			                	<th data-options="field:'ck',checkbox:true"></th>
+			                    <th data-options="field:'JSXM',width:100">教师姓名</th>
+			                    <th data-options="field:'QDQK',width:150,formatter: ProgressBar">签到情况</th>
+			                    <th data-options="field:'WHQK',width:150,formatter: ProgressBar">关于文化的定义(作业完成情况)</th>
+			                    <th data-options="field:'BNQK',width:150">参加百年老校(作业完成情况)</th>
+			                    <th data-options="field:'PXQK',width:150,formatter: ProgressBar">干部培训(作业完成情况)</th>
+			                    <th data-options="field:'GRADE',width:100">成绩(作业完成情况)</th>
+			                </tr>
+			            </thead>
+			            </table>
+					</div>
+				</div>
+				</div>
+		</div>
+
+
+    <script type="text/javascript" src="{% static 'pm/script/JQueryUI/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'pm/script/JQueryUI/jquery.easyui.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'pm/script/JQueryUI/locale/easyui-lang-zh_CN.js' %}"></script>
+    <!-- <script type="text/javascript" src="js/menu.js"></script> -->
+    <script type="text/javascript" src="{% static 'pm/script/js/main.js' %}"></script>
+
+    
+    <script type="text/javascript">
+  		var data = [{"JSXM":"张小溪","QDQK":"80%","WHQK":"80%","BNQK":"线下无作业","PXQK":"80%","GRADE":"合格"},{"JSXM":"黄暂行","QDQK":"20%","WHQK":"25%","BNQK":"线下无作业","PXQK":"80%","GRADE":"合格"},{"JSXM":"张小溪","QDQK":"40%","WHQK":"50%","BNQK":"线下无作业","PXQK":"80%","GRADE":"不合格"},{"JSXM":"袁成兰","QDQK":"70%","WHQK":"30%","BNQK":"线下无作业","PXQK":"80%","GRADE":"合格"},{"JSXM":"张一凡","QDQK":"60%","WHQK":"10%","BNQK":"线下无作业","PXQK":"80%","GRADE":"合格"},{"JSXM":"张一凡","QDQK":"40%","WHQK":"60%","BNQK":"线下无作业","PXQK":"70%","GRADE":"合格"}];
+    
+    	$(function(){
+            $('#dg').datagrid({data:data}).datagrid('clientPaging');
+        }); 
+        
+        function ProgressBar(value,rowData,rowIndex){
+			var htmlstr = '<div class="easyui-progressbar progressbar" style="width: 150px; height: 20px;"><div class="progressbar-text" style="width: 150px; height: 20px; line-height: 20px;">'+value+'</div><div class="progressbar-value" style="width: '+value+'; height: 20px; line-height: 20px;"><div class="progressbar-text" style="width: 150px; height: 20px; line-height: 20px;">'+value+'</div></div></div>';  
+    		return htmlstr; 
+		}
+		
+        (function($){
+            function pagerFilter(data){
+                if ($.isArray(data)){   // is array
+                    data = {
+                        total: data.length,
+                        rows: data
+                    }
+                }
+                var target = this;
+                var dg = $(target);
+                var state = dg.data('datagrid');
+                var opts = dg.datagrid('options');
+                if (!state.allRows){
+                    state.allRows = (data.rows);
+                }
+                if (!opts.remoteSort && opts.sortName){
+                    var names = opts.sortName.split(',');
+                    var orders = opts.sortOrder.split(',');
+                    state.allRows.sort(function(r1,r2){
+                        var r = 0;
+                        for(var i=0; i<names.length; i++){
+                            var sn = names[i];
+                            var so = orders[i];
+                            var col = $(target).datagrid('getColumnOption', sn);
+                            var sortFunc = col.sorter || function(a,b){
+                                return a==b ? 0 : (a>b?1:-1);
+                            };
+                            r = sortFunc(r1[sn], r2[sn]) * (so=='asc'?1:-1);
+                            if (r != 0){
+                                return r;
+                            }
+                        }
+                        return r;
+                    });
+                }
+                var start = (opts.pageNumber-1)*parseInt(opts.pageSize);
+                var end = start + parseInt(opts.pageSize);
+                data.rows = state.allRows.slice(start, end);
+                return data;
+            }
+
+            var loadDataMethod = $.fn.datagrid.methods.loadData;
+            var deleteRowMethod = $.fn.datagrid.methods.deleteRow;
+            $.extend($.fn.datagrid.methods, {
+                clientPaging: function(jq){
+                    return jq.each(function(){
+                        var dg = $(this);
+                        var state = dg.data('datagrid');
+                        var opts = state.options;
+                        opts.loadFilter = pagerFilter;
+                        var onBeforeLoad = opts.onBeforeLoad;
+                        opts.onBeforeLoad = function(param){
+                            state.allRows = null;
+                            return onBeforeLoad.call(this, param);
+                        }
+                        var pager = dg.datagrid('getPager');
+                        pager.pagination({
+                            onSelectPage:function(pageNum, pageSize){
+                                opts.pageNumber = pageNum;
+                                opts.pageSize = pageSize;
+                                pager.pagination('refresh',{
+                                    pageNumber:pageNum,
+                                    pageSize:pageSize
+                                });
+                                dg.datagrid('loadData',state.allRows);
+                            }
+                        });
+                        $(this).datagrid('loadData', state.data);
+                        if (opts.url){
+                            $(this).datagrid('reload');
+                        }
+                    });
+                },
+                loadData: function(jq, data){
+                    jq.each(function(){
+                        $(this).data('datagrid').allRows = null;
+                    });
+                    return loadDataMethod.call($.fn.datagrid.methods, jq, data);
+                },
+                deleteRow: function(jq, index){
+                    return jq.each(function(){
+                        var row = $(this).datagrid('getRows')[index];
+                        deleteRowMethod.call($.fn.datagrid.methods, $(this), index);
+                        var state = $(this).data('datagrid');
+                        if (state.options.loadFilter == pagerFilter){
+                            for(var i=0; i<state.allRows.length; i++){
+                                if (state.allRows[i] == row){
+                                    state.allRows.splice(i,1);
+                                    break;
+                                }
+                            }
+                            $(this).datagrid('loadData', state.allRows);
+                        }
+                    });
+                },
+                getAllRows: function(jq){
+                    return jq.data('datagrid').allRows;
+                }
+            })
+        })(jQuery);
+    </script>
+</body> 
+</html>

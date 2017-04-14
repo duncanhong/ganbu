@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en"> 
+<head> 
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>主页</title> 
+<link rel="stylesheet" href="{% static 'pm/css/base.css' %}" >
+<link rel="stylesheet" href="{% static 'pm/css/custom/uimaker/easyui.css' %}">
+<link rel="stylesheet" href="{% static 'pm/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'pm/css/style.css' %}">
+<style type="text/css">
+	.aaaa div{
+		height: 60px;
+		text-align: center;
+		font-size: 24px;
+	}
+	
+</style>
+</head> 
+<body>
+    	<div id="bd ">
+		   	<div id="p" class="easyui-panel" title="活动参与详情" style="width:100%;padding:10px;">
+				<div style="display: inline-block;">
+					<blockquote style="padding: 0px 10px;margin-left: 40px;">
+						<span style="font-size: 14px;">项目名称 : </span><span id="name" name="name"><strong>班主任干训班</strong></span>
+					</blockquote>
+					<blockquote style="padding: 0px 10px;margin-left: 40px;">
+						<span style="font-size: 14px;">项目时间 : </span><span id="start_date" name="start_date"><strong>2016.5.1至2016.12.1</strong></span>
+					</blockquote>
+				</div>
+				<div style="float: right;margin-right: 40%;">
+			   		<blockquote style="padding: 0px 10px;margin-left: 40px;">
+						<span style="font-size: 14px;">项目申报人 : </span><span id="applicant" name="applicant"><strong>张老师</strong></span>
+					</blockquote>
+					<blockquote style="padding: 0px 10px;margin-left: 40px;">
+						<span style="font-size: 14px;">项目学分 : </span><span id="credit" name="credit"><strong>10</strong></span>
+					</blockquote>
+				</div>
+				<div>
+					<blockquote style="padding: 0px 10px;margin-left: 40px;">
+						<span style="font-size: 14px;">班级名称 : </span><span><strong>班主任干训班</strong></span>
+					</blockquote>
+				</div>
+				<hr>
+				<div style="display: inline-block;width: 815px">
+					<blockquote style="padding: 0px 10px;margin-left: 40px;">
+						<span style="font-size: 14px;">项目内容 : </span>
+						<ul style="float: right;margin-top: 3px" id="content" name="content">
+							<li><strong>1、继续深入开展创先争优活动；</strong></li>
+							<li><strong>2、扎实开展核心价值观教育实践活动；</strong></li>
+							<li><strong>3、坚持从严教育干部，提高学习培训覆盖面和实效性，结合重点工作适时举行专题培训，优化干部知识结构，开阔干部思维视野</strong></li>
+							<li><strong>4、坚持以人为本、按需施教，联系实际、学以致用，全员培训、突出重点的原则</strong></li>
+						</ul>
+					</blockquote>
+				</div>
+				<hr>
+				<div style="width: 93%;margin: 0 auto;padding-bottom:20px;text-align: center;">
+					<div id="p" class="easyui-panel" title="关于文化的定义<br>活动名称" style="width:100%;padding:10px;" data-options="headerCls:'aaaa'">
+						<div>
+								<span style="font-size: 14px;margin-left: 20px">主讲老师 : </span><span id="teacher" name="teacher"><strong>郑旺</strong></span>
+								<span style="font-size: 14px;" class="SHDSJ">活动时间 : </span><span id="start_date" name="start_date"><strong>2016-5-20  10：00～11：00</strong></span>
+						</div>
+						<div >
+								<span style="font-size: 14px;margin-left: 20px">活动类型 : </span><span id="style" name="style"><strong>学习观摩</strong></span>
+								<span style="font-size: 14px;" class="SZYJZSJ">作业截止日期 : </span><span id="homework_deadline" name="homework_deadline"><strong>2016-05-20</strong></span>
+						</div>
+					</div>
+			    </div>
+			    <div class="easyui-tabs" data-options="tabWidth:150" style="width: 93%;margin: 0 auto;padding-bottom:20px;text-align: center;">
+					<div title="作业1、任务初稿" style="padding:10px">
+					<div style="display: inline-block;padding-right: 20%;border-right: 1px solid #E3E3E3">
+						<blockquote style="padding: 0px 10px;margin-left: 40px;">
+							<h4>参考资料</h4>
+						</blockquote>
+						<ul style="display: inline-block;margin-left: 40px">
+							<li><a href="#" >干部培训文档1.DOC</a></li>
+							<li><a href="#" >干部培训文档2.DOC</a></li>
+							<li><a href="#" >干部培训文档3.DOC</a></li>
+							<li><a href="#" >干部培训文档4.DOC</a></li>
+							<li><a href="#" >干部培训文档5.DOC</a></li>
+						</ul>
+					</div>
+					<div style="width:60%;display: inline-block;float: right;">
+						<blockquote style="padding: 0px 10px;margin-left: 40px;">
+							<h4>作业要求</h4>
+						</blockquote>
+						<p style="width:80%;margin-left: 42px"><strong>根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档</strong></p>
+					</div>
+					<div style="border:1px solid #F1F1F1;width: 90%;margin: 30px 40px 0px 40px;padding:10px 0px;">
+						<div class="conditions" style="padding:20px 30px;">
+			            	<input class="easyui-textbox" data-options="prompt:'请输入标题'" style="width:100%"></input>
+			        	</div>
+			        	<div class="conditions" style="padding:0px 30px;">
+							<script type="text/plain" id="editor" style="width: 100%;height: 200px"></script>
+			        	</div>
+			        	<div class="conditions" style="padding:20px 30px;">
+			            	<span class="con-span" >附件: </span><input class="easyui-filebox" data-options="buttonText:'浏览',prompt:'请选择附件'" style="width:95%;height:32px;">
+			        	</div>
+			        	<!-- <div class="input-group" style="padding: 10px 0px">
+							<input type="text" class="form-control" style="width: 57.5%;margin-left: 42.8%">
+							<div class="input-group-btn" >
+								<button class="btn btn-default" style="background-color: #EEEEEE;margin:0px 230px 0 0">附件提交</button>
+							</div>
+						</div> -->
+						<div style="text-align: center">
+							<a href="#" class="easyui-linkbutton" >取消</a>
+	            			<a href="#" class="easyui-linkbutton" data-options="selected:true">提交</a>
+						</div>
+					</div>
+					<div style="width: 90%;margin: 0px 40px 0px 40px;padding:10px 0px;">
+						<blockquote style="padding: 0px 10px;margin-left: 40px;">
+							<h4>互动交流</h4>
+						</blockquote>
+						<div class="container-fluid">
+							<!-- <div class="row">
+								<div class="col-md-5 col-sm-5 col-xs-5" style="margin: 0 40px; padding: 0;border:1px solid red;width: auto;">
+									<img src="images/user.png" class="img-responsive" alt="">
+								</div>
+								<div class="section first" style="border:1px solid red;">
+									                            <h4 style="color: #8FBEE1;border:1px solid red;display: inline-block;margin: 0 30px 5px 0;">袁老师</h4>
+									                            <p style="border:1px solid red;width:70%">这次活动很有意义,我很喜欢</p>
+									                            <p style="border:1px solid red;width:10%;position: relative;margin: 0 0 30px 800px">2015-01-09</p>
+									                        </div>
+							</div> -->
+							<div class="row info-content">
+								<div class="col-md-5 col-sm-5 col-xs-5" style="margin: 0 40px; padding: 0;width: auto;">
+									<img src="{% static 'pm/images/user.png' %}" class="img-responsive" alt="">
+								</div>
+								<div class="col-md-7 col-sm-7 col-xs-7" style="margin-left: -30px">
+									<h4 style="color: #8FBEE1;display: inline-block;margin: 0 30px 5px 0;">袁老师</h4>
+									<p class="hidden-xs" style="width: 50%">这次活动很有意义,我很喜欢</p>
+									<p style="float: right;position: relative;right: 5px;top: -30px;">2015-10-11</p>
+								</div>
+							</div>
+							<div class="row info-content">
+								<div class="col-md-5 col-sm-5 col-xs-5" style="margin: 0 40px; padding: 0;width: auto;">
+									<img src="{% static 'pm/images/user.png' %}" class="img-responsive" alt="">
+								</div>
+								<div class="col-md-7 col-sm-7 col-xs-7" style="margin-left: -30px">
+									<h4 style="color: #8FBEE1;display: inline-block;margin: 0 30px 5px 0;">张老师</h4>
+									<p class="hidden-xs" style="width: 50%">这次活动很有意义,我很喜欢</p>
+									<p style="float: right;position: relative;right: 5px;top: -30px;">2015-10-11</p>
+								</div>
+							</div>
+							<div class="row info-content">
+								<div class="col-md-5 col-sm-5 col-xs-5" style="margin: 0 40px; padding: 0;width: auto;">
+									<img src="{% static 'pm/images/user.png' %}" class="img-responsive" alt="">
+								</div>
+								<div class="col-md-7 col-sm-7 col-xs-7" style="margin-left: -30px">
+									<h4 style="color: #8FBEE1;display: inline-block;margin: 0 30px 5px 0;">李老师</h4>
+									<p class="hidden-xs" style="width: 50%">这次活动很有意义,我很喜欢</p>
+									<p style="float: right;position: relative;right: 5px;top: -30px;">2015-10-11</p>
+								</div>
+							</div>
+						</div>
+						<blockquote style="padding: 0px 10px;margin-left: 40px;">
+								<h4>互动交流</h4>
+						</blockquote>
+						
+						<span style="display:inline-block;width: 4.3%"></span><input class="easyui-textbox" type="text" name="code" data-options="multiline:true" style="width:60%;height: 100px;">
+						</input>
+						<div style="text-align: center;margin-top:20px">
+							<a href="#" class="easyui-linkbutton" >取消</a>
+	            			<a href="#" class="easyui-linkbutton" data-options="selected:true">提交</a>
+						</div>
+					</div>
+					</div>
+					<div title="作业2、任务修改" style="padding:10px">
+						<div style="display: inline-block;padding-right: 20%;border-right: 1px solid #E3E3E3">
+						<blockquote style="padding: 0px 10px;margin-left: 40px;">
+							<h4>听评课资源</h4>
+						</blockquote>
+						<ul style="display: inline-block;margin-left: 40px">
+							<li><a href="#" >听评课课例资源1.mp4</a></li>
+							<li><a href="#" >听评课课例资源2.mp4</a></li>
+							<li><a href="#" >听评课课例资源3.mp4</a></li>
+							<li><a href="#" >听评课课例资源4.mp4</a></li>
+							<li><a href="#" >听评课课例资源5.mp4</a></li>
+						</ul>
+					</div>
+					<div style="width:60%;display: inline-block;float: right;">
+						<blockquote style="padding: 0px 10px;margin-left: 40px;">
+							<h4>作业要求</h4>
+						</blockquote>
+						<p style="width:80%;margin-left: 42px"><strong>根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档</strong></p>
+					</div>
+					<div style="border:1px solid #F1F1F1;width: 90%;margin: 30px 40px 0px 40px;padding:10px 0px;">
+						<div class="conditions" style="padding:20px 30px;">
+			            	<input class="easyui-textbox" data-options="prompt:'请输入标题'" style="width:100%"></input>
+			        	</div>
+			        	<div class="conditions" style="padding:10px 30px;">
+			            	<script type="text/plain" id="editor1" style="width: 100%;height: 200px"></script>
+			        	</div>
+			        	<div class="conditions" style="padding:20px 30px;">
+			            	<span class="con-span" >附件: </span><input class="easyui-filebox" data-options="buttonText:'浏览',prompt:'请选择附件'" style="width:95%;height:32px;">
+			        	</div>
+						<div style="text-align: center;">
+							<a href="#" class="easyui-linkbutton" >取消</a>
+            				<a href="#" class="easyui-linkbutton" data-options="selected:true">提交</a>
+						</div>
+			        	
+					</div>
+					<div style="width: 90%;margin: 0px 40px 0px 40px;padding:10px 0px;">
+						<blockquote style="padding: 0px 10px;margin-left: 40px;">
+							<h4>互动交流</h4>
+						</blockquote>
+						<div class="container-fluid">
+							<div class="row info-content">
+								<div class="col-md-5 col-sm-5 col-xs-5" style="margin: 0 40px; padding: 0;width: auto;">
+									<img src="../../images/user.png" class="img-responsive" alt="">
+								</div>
+								<div class="col-md-7 col-sm-7 col-xs-7" style="margin-left: -30px">
+									<h4 style="color: #8FBEE1;display: inline-block;margin: 0 30px 5px 0;">袁老师</h4>
+									<p class="hidden-xs" style="width: 50%">这次活动很有意义,我很喜欢</p>
+									<p style="float: right;position: relative;right: 5px;top: -30px;">2015-10-11</p>
+								</div>
+							</div>
+							<div class="row info-content">
+								<div class="col-md-5 col-sm-5 col-xs-5" style="margin: 0 40px; padding: 0;width: auto;">
+									<img src="../../images/user.png" class="img-responsive" alt="">
+								</div>
+								<div class="col-md-7 col-sm-7 col-xs-7" style="margin-left: -30px">
+									<h4 style="color: #8FBEE1;display: inline-block;margin: 0 30px 5px 0;">张老师</h4>
+									<p class="hidden-xs" style="width: 50%">这次活动很有意义,我很喜欢</p>
+									<p style="float: right;position: relative;right: 5px;top: -30px;">2015-10-11</p>
+								</div>
+							</div>
+							<div class="row info-content">
+								<div class="col-md-5 col-sm-5 col-xs-5" style="margin: 0 40px; padding: 0;width: auto;">
+									<img src="../../images/user.png" class="img-responsive" alt="">
+								</div>
+								<div class="col-md-7 col-sm-7 col-xs-7" style="margin-left: -30px">
+									<h4 style="color: #8FBEE1;display: inline-block;margin: 0 30px 5px 0;">李老师</h4>
+									<p class="hidden-xs" style="width: 50%">这次活动很有意义,我很喜欢</p>
+									<p style="float: right;position: relative;right: 5px;top: -30px;">2015-10-11</p>
+								</div>
+							</div>
+						</div>
+						<blockquote style="padding: 0px 10px;margin-left: 40px;">
+								<h4>互动交流</h4>
+						</blockquote>
+						
+						<span style="display:inline-block;width: 4.3%"></span><input class="easyui-textbox" type="text" name="code"  style="width:60%;height: 100px;">
+						</input>
+						<div style="text-align: center;margin-top:20px">
+							<a href="#" class="easyui-linkbutton" >取消</a>
+	            			<a href="#" class="easyui-linkbutton" data-options="selected:true">提交</a>
+						</div>
+					</div>
+					</div>
+					<div title="作业3、培训小结" style="padding:10px">
+						<div style="display: inline-block;padding-right: 20%;border-right: 1px solid #E3E3E3">
+						<blockquote style="padding: 0px 10px;margin-left: 40px;">
+							<h4>参考资料</h4>
+						</blockquote>
+						<ul style="display: inline-block;margin-left: 40px">
+							<li><a href="#" >干部培训文档1.DOC</a></li>
+							<li><a href="#" >干部培训文档2.DOC</a></li>
+							<li><a href="#" >干部培训文档3.DOC</a></li>
+							<li><a href="#" >干部培训文档4.DOC</a></li>
+							<li><a href="#" >干部培训文档5.DOC</a></li>
+						</ul>
+					</div>
+					<div style="width:60%;display: inline-block;float: right;">
+						<blockquote style="padding: 0px 10px;margin-left: 40px;">
+							<h4>作业要求</h4>
+						</blockquote>
+						<p style="width:80%;margin-left: 42px"><strong>根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档</strong></p>
+					</div>
+					<div style="border:1px solid #F1F1F1;width: 90%;margin: 30px 40px 0px 40px;padding:10px 0px;">
+						<div class="conditions" style="padding:20px 30px;">
+			            	<input class="easyui-textbox" data-options="prompt:'请输入标题'" style="width:100%"></input>
+			        	</div>
+			        	<div class="conditions" style="padding:10px 30px;">
+			            	<script type="text/plain" id="editor2" style="width: 100%;height: 200px"></script>
+			        	</div>
+			        	<div class="conditions" style="padding:20px 30px;">
+			            	<span class="con-span" >附件: </span><input class="easyui-filebox" data-options="buttonText:'浏览',prompt:'请选择附件'" style="width:95%;height:32px;">
+			        	</div>
+						<div style="text-align: center;">
+							<a href="#" class="easyui-linkbutton" >取消</a>
+            				<a href="#" class="easyui-linkbutton" data-options="selected:true">提交</a>
+						</div>
+			        	
+					</div>
+					<div style="width: 90%;margin: 0px 40px 0px 40px;padding:10px 0px;">
+						<blockquote style="padding: 0px 10px;margin-left: 40px;">
+							<h4>互动交流</h4>
+						</blockquote>
+						<div class="container-fluid">
+							<div class="row info-content" >
+								<div class="col-md-5 col-sm-5 col-xs-5" style="margin: 0 40px; padding: 0;width: auto;">
+									<img src="../../images/user.png" class="img-responsive" alt="">
+								</div>
+								<div class="col-md-7 col-sm-7 col-xs-7" style="margin-left: -30px">
+									<h4 style="color: #8FBEE1;display: inline-block;margin: 0 30px 5px 0;">袁老师</h4>
+									<p class="hidden-xs" style="width: 50%">这次活动很有意义,我很喜欢</p>
+									<p style="float: right;position: relative;right: 5px;top: -30px;">2015-10-11</p>
+								</div>
+							</div>
+							<div class="row info-content" >
+								<div class="col-md-5 col-sm-5 col-xs-5" style="margin: 0 40px; padding: 0;width: auto;">
+									<img src="../../images/user.png" class="img-responsive" alt="">
+								</div>
+								<div class="col-md-7 col-sm-7 col-xs-7" style="margin-left: -30px">
+									<h4 style="color: #8FBEE1;display: inline-block;margin: 0 30px 5px 0;">张老师</h4>
+									<p class="hidden-xs" style="width: 50%">这次活动很有意义,我很喜欢</p>
+									<p style="float: right;position: relative;right: 5px;top: -30px;">2015-10-11</p>
+								</div>
+							</div>
+							<div class="row info-content">
+								<div class="col-md-5 col-sm-5 col-xs-5" style="margin: 0 40px; padding: 0;width: auto;">
+									<img src="../../images/user.png" class="img-responsive" alt="">
+								</div>
+								<div class="col-md-7 col-sm-7 col-xs-7" style="margin-left: -30px">
+									<h4 style="color: #8FBEE1;display: inline-block;margin: 0 30px 5px 0;">李老师</h4>
+									<p class="hidden-xs" style="width: 50%">这次活动很有意义,我很喜欢</p>
+									<p style="float: right;position: relative;right: 5px;top: -30px;">2015-10-11</p>
+								</div>
+							</div>
+						</div>
+						<blockquote style="padding: 0px 10px;margin-left: 40px;">
+								<h4>互动交流</h4>
+						</blockquote>
+						
+						<span style="display:inline-block;width: 4.3%"></span><input class="easyui-textbox" type="text" name="code"  style="width:60%;height: 100px;">
+						</input>
+						<div style="text-align: center;margin-top:20px">
+							<a href="#" class="easyui-linkbutton" >取消</a>
+	            			<a href="#" class="easyui-linkbutton" data-options="selected:true">提交</a>
+						</div>
+					</div>
+					</div>
+					
+				</div>
+
+				</div>
+		</div>
+    <script type="text/javascript" src="{% static 'pm/script/JQueryUI/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'pm/script/JQueryUI/jquery.easyui.min.js' %}"></script>
+    <!-- <script type="text/javascript" src="js/menu.js"></script> -->
+    <script type="text/javascript" src="{% static 'pm/script/js/main.js' %}"></script>
+
+</body> 
+
+<!-- Ueditor编辑器JS -->
+<script type="text/javascript" charset="utf-8" src="{% static 'pm/script/ue/ueditor.config.js' %}"></script>
+<script type="text/javascript" charset="utf-8" src="{% static 'pm/script/ue/ueditor.all.js' %}"></script>
+<script type="text/javascript" src="{% static 'pm/script/ue/lang/zh-cn/zh-cn.js' %}"></script>
+<script type="text/javascript" charset="utf-8" src="{% static 'pm/script/ue/ueditor.parse.js' %}"></script>
+<script type="text/javascript" charset="utf-8" src="{% static 'pm/script/ue/base.js' %}"></script>
+<script type="text/javascript" charset="utf-8" src="{% static 'pm/script/ue/UEbase.js' %}"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		var um = UE.getEditor('editor');
+		UE.getEditor('editor1');
+		UE.getEditor('editor2');
+		loadUE(um);
+	});
+</script>
+</html>

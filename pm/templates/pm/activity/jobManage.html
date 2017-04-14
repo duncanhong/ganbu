@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en"> 
+<head> 
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>主页</title> 
+
+<link rel="stylesheet" href="{% static 'pm/css/base.css' %}" >
+<link rel="stylesheet" href="{% static 'pm/css/custom/uimaker/easyui.css' %}">
+<link rel="stylesheet" href="{% static 'pm/css/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'pm/css/custom/uimaker/icon.css' %}">
+<link rel="stylesheet" href="{% static 'pm/css/style.css' %}">
+<style type="text/css">
+	.aaaa div{
+		height: 60px;
+		text-align: center;
+		font-size: 24px;
+	}
+	
+</style>
+</head> 
+<body>
+    	<div id="bd ">
+		   	<div id="p" class="easyui-panel" title="活动参与详情" style="width:100%;padding:10px;">
+				<div style="display: inline-block;">
+					<blockquote style="padding: 0px 10px;margin-left: 40px;">
+						<span style="font-size: 14px;">项目名称 : </span><span id="name" name="name"><strong>班主任干训班</strong></span>
+					</blockquote>
+					<blockquote style="padding: 0px 10px;margin-left: 40px;">
+						<span style="font-size: 14px;">项目时间 : </span><span id="start_date" name="start_date"><strong>2016.5.1至2016.12.1</strong></span>
+					</blockquote>
+				</div>
+				<div style="float: right;margin-right: 40%;">
+			   		<blockquote style="padding: 0px 10px;margin-left: 40px;">
+						<span style="font-size: 14px;">项目申报人 : </span><span id="applicant" name="applicant"><strong>张老师</strong></span>
+					</blockquote>
+					<blockquote style="padding: 0px 10px;margin-left: 40px;">
+						<span style="font-size: 14px;">项目学分 : </span><span id="credit" name="credit"><strong>10</strong></span>
+					</blockquote>
+				</div>
+				<div>
+					<blockquote style="padding: 0px 10px;margin-left: 40px;">
+						<span style="font-size: 14px;">班级名称 : </span><span><strong>班主任干训班</strong></span>
+					</blockquote>
+				</div>
+				<hr>
+				<div style="display: inline-block;width: 815px">
+					<blockquote style="padding: 0px 10px;margin-left: 40px;">
+						<span style="font-size: 14px;">项目内容 : </span>
+						<ul style="float: right;margin-top: 3px" id="content" name="content">
+							<li><strong>1、继续深入开展创先争优活动；</strong></li>
+							<li><strong>2、扎实开展核心价值观教育实践活动；</strong></li>
+							<li><strong>3、坚持从严教育干部，提高学习培训覆盖面和实效性，结合重点工作适时举行专题培训，优化干部知识结构，开阔干部思维视野</strong></li>
+							<li><strong>4、坚持以人为本、按需施教，联系实际、学以致用，全员培训、突出重点的原则</strong></li>
+						</ul>
+					</blockquote>
+				</div>
+				<hr>
+				<div style="width: 93%;margin: 0 auto;padding-bottom:20px;text-align: center;">
+					<div id="p" class="easyui-panel" title="关于文化的定义<br>活动名称" style="width:100%;padding:10px;" data-options="headerCls:'aaaa'">
+						<div>
+							<span style="font-size: 14px;margin-left: 20px">主讲老师 : </span><span id="teacher" name="teacher"><strong>郑旺</strong></span>
+							<span style="font-size: 14px;" class="SHDSJ">活动时间 : </span><span id="start_date" name="start_date"><strong>2016-5-20  10：00～11：00</strong></span>
+						</div>
+						<div >
+							<span style="font-size: 14px;margin-left: 20px">活动类型 : </span><span id="style" name="style"><strong>学习观摩</strong></span>
+							<span style="font-size: 14px;" class="SZYJZSJ">作业截止日期 : </span><span id="homework_deadline" name="homework_deadline"><strong>2016-05-20</strong></span>
+						</div>
+					</div>
+			    </div>
+			    
+			    <a href="#" id="addWork" class="easyui-linkbutton" style="margin-left: 3.5%;margin-bottom: 15px" data-options="selected:true" iconCls="icon-add" onClick="doToolbar(this.id);">添加作业</a>
+			    <a href="#" class="easyui-linkbutton" style="margin-bottom: 15px">编辑</a>
+            	<a href="#" class="easyui-linkbutton" style="margin-bottom: 15px">删除</a>
+			    <div id="addWorkDialog">
+				      	<table class="kv-table">
+							<tbody>
+								<tr>
+									<td class="kv-label">作业类别</td>
+									<td class="kv-content"><select class="easyui-combobox" id="type" name="type" style="width: 260px"><option>任务初稿</option></select></td>
+								</tr>
+								<tr>
+									<td class="kv-label">参考资料</td>
+									<td class="kv-content"><select class="easyui-combobox" id="material" name="material" style="width: 260px"><option>研修文档1.MP3</option></select></td>
+								</tr>
+								<tr>
+									<td class="kv-label">作业要求</td>
+									<td class="kv-content"><input class="easyui-textbox" id="requirement" name="requirement" type="text" data-options="multiline:true" style="width: 260px;height: 60px"></td>
+								</tr>
+								<tr>
+									<td class="kv-label">是否可上传附件</td>
+									<td class="kv-content" >
+										<label class="radio-inline">
+											<input type="radio" id="attachment" name="attachment" value="radiobutton" checked="true">是
+										</label>
+										<label class="radio-inline" > 
+											<input type="radio" id="attachment" name="attachment">否
+										</label>
+									</td>
+								</tr>
+								<tr>
+									<td class="kv-label">附件数量</td>
+									<td class="kv-content"><select class="easyui-combobox" id="attachment_number" name="attachment_number" style="width: 260px"><option>请选择</option></select></td>
+								</tr>
+							</tbody>
+						</table>
+			    </div>
+			    <div class="easyui-tabs" data-options="tabWidth:150" style="width: 93%;margin: 0 auto;padding-bottom:20px;text-align: center;">
+					<div title="作业1、任务初稿" style="padding:10px">
+					<div style="display: inline-block;padding-right: 20%;border-right: 1px solid #E3E3E3">
+						<blockquote style="padding: 0px 10px;margin-left: 40px;">
+							<h4>参考资料</h4>
+						</blockquote>
+						<ul style="display: inline-block;margin-left: 40px" id="material" name="material">
+							<li><a href="#" >干部培训文档1.DOC</a></li>
+							<li><a href="#" >干部培训文档2.DOC</a></li>
+							<li><a href="#" >干部培训文档3.DOC</a></li>
+							<li><a href="#" >干部培训文档4.DOC</a></li>
+							<li><a href="#" >干部培训文档5.DOC</a></li>
+						</ul>
+					</div>
+					<div style="width:60%;display: inline-block;float: right;">
+						<blockquote style="padding: 0px 10px;margin-left: 40px;">
+							<h4>作业要求</h4>
+						</blockquote>
+						<p style="width:80%;margin-left: 42px" id="requirement" name="requirement"><strong>根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档</strong></p>
+					</div>
+					
+					</div>
+					<div title="作业2、任务修改" style="padding:10px">
+						<div style="display: inline-block;padding-right: 20%;border-right: 1px solid #E3E3E3">
+						<blockquote style="padding: 0px 10px;margin-left: 40px;">
+							<h4>听评课资源</h4>
+						</blockquote>
+						<ul style="display: inline-block;margin-left: 40px">
+							<li><a href="#" >听评课课例资源1.mp4</a></li>
+							<li><a href="#" >听评课课例资源2.mp4</a></li>
+							<li><a href="#" >听评课课例资源3.mp4</a></li>
+							<li><a href="#" >听评课课例资源4.mp4</a></li>
+							<li><a href="#" >听评课课例资源5.mp4</a></li>
+						</ul>
+					</div>
+					<div style="width:60%;display: inline-block;float: right;">
+						<blockquote style="padding: 0px 10px;margin-left: 40px;">
+							<h4>作业要求</h4>
+						</blockquote>
+						<p style="width:80%;margin-left: 42px"><strong>根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档</strong></p>
+					</div>
+					
+					</div>
+					<div title="作业3、培训小结" style="padding:10px">
+						<div style="display: inline-block;padding-right: 20%;border-right: 1px solid #E3E3E3">
+						<blockquote style="padding: 0px 10px;margin-left: 40px;">
+							<h4>参考资料</h4>
+						</blockquote>
+						<ul style="display: inline-block;margin-left: 40px">
+							<li><a href="#" >干部培训文档1.DOC</a></li>
+							<li><a href="#" >干部培训文档2.DOC</a></li>
+							<li><a href="#" >干部培训文档3.DOC</a></li>
+							<li><a href="#" >干部培训文档4.DOC</a></li>
+							<li><a href="#" >干部培训文档5.DOC</a></li>
+						</ul>
+					</div>
+					<div style="width:60%;display: inline-block;float: right;">
+						<blockquote style="padding: 0px 10px;margin-left: 40px;">
+							<h4>作业要求</h4>
+						</blockquote>
+						<p style="width:80%;margin-left: 42px" id="requirement" name="requirement"><strong>根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档，根据研修主题，写一篇教学反思，可上传附件文档</strong></p>
+					</div>
+					</div>
+				</div>
+
+				</div>
+		</div>
+
+    <script type="text/javascript" src="{% static 'pm/script/JQueryUI/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'pm/script/JQueryUI/jquery.easyui.min.js' %}"></script>
+    <!-- <script type="text/javascript" src="js/menu.js"></script> -->
+    <script type="text/javascript" src="{% static 'pm/script/js/main.js' %}"></script>
+    
+    <script type="text/javascript">
+    	$(document).ready(function(){
+			initDialog();//初始化对话框
+		});
+    
+   		function initDialog() {
+   			$('#addWorkDialog').dialog({
+			width : 450,//宽度设置   
+			height : 281,//高度设置
+			padding : 10,
+			modal : true,
+			closed : true,
+			cache : false,
+			draggable : false,//是否可移动dialog框设置
+			toolbar : [ {
+				//保存编辑
+				text : "保存",
+				iconCls : 'icon-save',
+				handler : function() {
+					//传入save值进入doToolbar方法，用于保存
+				}
+			} ],
+			//打开事件
+			onOpen : function(data) {
+			},
+			//读取事件
+			onLoad : function(data) {
+			},
+			//关闭事件
+			onClose : function(data) {
+			}
+		});
+   		}
+   		
+   		function doToolbar(iToolbar) {
+   			if(iToolbar=="addWork"){
+   				$('#addWorkDialog').dialog({
+					title : '添加作业'
+				});
+				$('#addWorkDialog').dialog('open');
+			}
+   		}
+    </script>
+</body> 
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en"> 
+<head> 
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title></title> 
+
+<link rel="stylesheet" href="{% static 'pm/css/base.css' %}" >
+<link rel="stylesheet" href="{% static 'pm/css/custom/uimaker/easyui.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'pm/css/custom/uimaker/icon.css' %}">
+
+</head> 
+<body>
+    <div class="container">
+		<div id="p" class="easyui-panel" title="中层干部培训(3分) 2016.5.1~2016.6.1" style="width:100%;padding:10px;">
+			<table style="font-size : 13px;margin-left:30px">
+				<tr style="height:25px;">
+					<td style="border-left:3px #5AFB62 solid;padding-left:10px;color:#969696;">项目内容：</td>
+					<td >1、继续深入开展创先争优活动；</td>
+				</tr>
+				<tr style="height:25px;">
+					<td></td>
+					<td >2、扎实开展核心价值观教育实践活动；</td>
+				</tr>
+				<tr style="height:25px;">
+					<td></td>
+					<td >3、坚持从严教育干部，提高学习培训覆盖面和实效性，结合重点工作适时举行专题培训，优化干部知识结构，开阔干部思维视野</td>
+				</tr>
+				<tr style="height:25px;">
+					<td></td>
+					<td >4、坚持以人为本、按需施教，联系实际、学以致用，全员培训、突出重点的原则</td>
+				</tr>
+			</table>
+		</div>
+		<div style="float:right;color:red;padding:10px;">注：当请假或者缺课达到20%，作业有未提交情况的，成绩就视为不合格</div>
+       <table id="dg" style="width:100%;height:auto;" data-options="
+                rownumbers:true,
+				toolbar:'#toolbar',
+                singleSelect:false,
+                autoRowHeight:false,
+                pagination:true,
+                fitColumns:true,
+                striped:true,
+                checkOnSelect:false,
+                selectOnCheck:false,
+                collapsible:true,
+                pageSize:10">
+            <thead>
+                <tr>
+                    <th field="programName" width="20"><center>姓名</center></th>
+                    <th field="start_date" width="20"><center>成绩</center></th>
+                    <th field="credit" width="20"><center>签到情况</center></th>
+					<th field="style" width="110"><center>活动作业完成情况</center></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+	<script type="text/javascript" src="{% static 'pm/script/JQueryUI/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'pm/script/JQueryUI/jquery.easyui.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'pm/script/JQueryUI/locale/easyui-lang-zh_CN.js' %}"></script>
+
+
+
+    
+    <script type="text/javascript">
+            (function($){
+			var a = $(".drama-poster ul>li");
+	a.mouseover(function () {
+		a.removeClass("current");
+		$(this).addClass("current") 
+	});
+	$(".drama-slide li.next a").click(function () {
+		var b = $(".drama-poster ul>li:first"), c = $(".drama-poster ul .current").index();
+		$(".drama-poster ul>li:last").after(b);
+		$(".drama-poster ul li").removeClass("current");
+		$(".drama-poster ul").find("li").eq(c).addClass("current") 
+	});
+	$(".drama-slide li.prev a").click(function () {
+		var c = $(".drama-poster ul>li:last"), b = $(".drama-poster ul .current").index();
+		$(".drama-poster ul>li:first").before(c);
+		$(".drama-poster ul li").removeClass("current");
+		$(".drama-poster ul").find("li").eq(b).addClass("current") 
+	});
+            function pagerFilter(data){
+                if ($.isArray(data)){   // is array
+                    data = {
+                        total: data.length,
+                        rows: data
+                    }
+                }
+                var target = this;
+                var dg = $(target);
+                var state = dg.data('datagrid');
+                var opts = dg.datagrid('options');
+                if (!state.allRows){
+                    state.allRows = (data.rows);
+                }
+                if (!opts.remoteSort && opts.sortName){
+                    var names = opts.sortName.split(',');
+                    var orders = opts.sortOrder.split(',');
+                    state.allRows.sort(function(r1,r2){
+                        var r = 0;
+                        for(var i=0; i<names.length; i++){
+                            var sn = names[i];
+                            var so = orders[i];
+                            var col = $(target).datagrid('getColumnOption', sn);
+                            var sortFunc = col.sorter || function(a,b){
+                                return a==b ? 0 : (a>b?1:-1);
+                            };
+                            r = sortFunc(r1[sn], r2[sn]) * (so=='asc'?1:-1);
+                            if (r != 0){
+                                return r;
+                            }
+                        }
+                        return r;
+                    });
+                }
+                var start = (opts.pageNumber-1)*parseInt(opts.pageSize);
+                var end = start + parseInt(opts.pageSize);
+                data.rows = state.allRows.slice(start, end);
+                return data;
+            }
+
+            var loadDataMethod = $.fn.datagrid.methods.loadData;
+            var deleteRowMethod = $.fn.datagrid.methods.deleteRow;
+            $.extend($.fn.datagrid.methods, {
+                clientPaging: function(jq){
+                    return jq.each(function(){
+                        var dg = $(this);
+                        var state = dg.data('datagrid');
+                        var opts = state.options;
+                        opts.loadFilter = pagerFilter;
+                        var onBeforeLoad = opts.onBeforeLoad;
+                        opts.onBeforeLoad = function(param){
+                            state.allRows = null;
+                            return onBeforeLoad.call(this, param);
+                        }
+                        var pager = dg.datagrid('getPager');
+                        pager.pagination({
+                            onSelectPage:function(pageNum, pageSize){
+                                opts.pageNumber = pageNum;
+                                opts.pageSize = pageSize;
+                                pager.pagination('refresh',{
+                                    pageNumber:pageNum,
+                                    pageSize:pageSize
+                                });
+                                dg.datagrid('loadData',state.allRows);
+                            }
+                        });
+                        $(this).datagrid('loadData', state.data);
+                        if (opts.url){
+                            $(this).datagrid('reload');
+                        }
+                    });
+                },
+                loadData: function(jq, data){
+                    jq.each(function(){
+                        $(this).data('datagrid').allRows = null;
+                    });
+                    return loadDataMethod.call($.fn.datagrid.methods, jq, data);
+                },
+                deleteRow: function(jq, index){
+                    return jq.each(function(){
+                        var row = $(this).datagrid('getRows')[index];
+                        deleteRowMethod.call($.fn.datagrid.methods, $(this), index);
+                        var state = $(this).data('datagrid');
+                        if (state.options.loadFilter == pagerFilter){
+                            for(var i=0; i<state.allRows.length; i++){
+                                if (state.allRows[i] == row){
+                                    state.allRows.splice(i,1);
+                                    break;
+                                }
+                            }
+                            $(this).datagrid('loadData', state.allRows);
+                        }
+                    });
+                },
+                getAllRows: function(jq){
+                    return jq.data('datagrid').allRows;
+                }
+            })
+        })(jQuery);
+
+        function getData(){
+            var rows = [];
+            for(var i=1; i<=1; i++){
+                rows.push({
+                    programName: '袁成兰',
+                    start_date: '合格',
+                    credit:'100%',
+                    style:'关于文化的定义&nbsp;100%;&nbsp;参观百年老校&nbsp;90%;&nbsp;专家讲座&nbsp;100%;&nbsp;专家讲座&nbsp;80%'
+                });
+				rows.push({
+                    programName: '张婷',
+                    start_date: '合格',
+                    credit:'90%',
+                    style:'关于文化的定义&nbsp;80%;&nbsp;参观百年老校&nbsp;80%;&nbsp;专家讲座&nbsp;100%;&nbsp;专家讲座&nbsp;80%'
+                });
+				rows.push({
+                    programName: '黄展新',
+                    start_date: '不合格',
+                    credit:'40%',
+                    style:'关于文化的定义&nbsp;00%;&nbsp;参观百年老校&nbsp;80%;&nbsp;专家讲座&nbsp;100%;&nbsp;专家讲座&nbsp;80%'
+                });
+            }
+            return rows;
+        }
+        
+        $(function(){
+            $('#dg').datagrid({data:getData()}).datagrid('clientPaging');
+        });        
+    </script>
+</body> 
+</html>

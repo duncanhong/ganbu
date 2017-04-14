@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en"> 
+<head> 
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title></title> 
+
+<link rel="stylesheet" href="{% static 'pm/css/base.css' %}" >
+<link rel="stylesheet" href="{% static 'pm/css/custom/uimaker/easyui.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'pm/css/custom/uimaker/icon.css' %}">
+<link rel="stylesheet" href="{% static 'pm/css/process.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'script/js/umeditor/themes/default/css/umeditor.css' %}">
+ 
+</head> 
+<body>
+    <div class="container">
+		<div id="p" class="easyui-panel" title="中层干部培训(3分) 2016.5.1~2016.6.1" style="width:100%;padding:10px;">
+			<table style="font-size : 13px;margin-left:30px">
+				<tr style="height:25px;">
+					<td style="border-left:3px #5AFB62 solid;padding-left:10px;color:#969696;">项目内容：</td>
+					<td >1、继续深入开展创先争优活动；</td>
+				</tr>
+				<tr style="height:25px;">
+					<td></td>
+					<td >2、扎实开展核心价值观教育实践活动；</td>
+				</tr>
+				<tr style="height:25px;">
+					<td></td>
+					<td >3、坚持从严教育干部，提高学习培训覆盖面和实效性，结合重点工作适时举行专题培训，优化干部知识结构，开阔干部思维视野</td>
+				</tr>
+				<tr style="height:25px;">
+					<td></td>
+					<td >4、坚持以人为本、按需施教，联系实际、学以致用，全员培训、突出重点的原则</td>
+				</tr>
+			</table>
+		</div>
+		       <div id="p" class="easyui-panel" title="项目资料或总结" style="width:100%;padding:10px;">
+				<table class="kv-table">
+					<tbody>
+						<tr>
+							<td class="kv-label">总结：</td>
+							<td class="kv-content" id="ic_className1">
+								<div id="editor-state" class="editor-state">
+								</div>
+							</td>
+							
+						</tr>
+						<tr>
+							<td class="kv-label">上传附件</td>
+							<td class="kv-content" id="ic_XMZY1">
+								<input class="easyui-filebox" label="File1:" labelPosition="top" data-options="prompt:'选择文件...'" style="width:600px">	
+							</td>
+						</tr>
+						
+						
+					</tbody>
+				</table>
+				
+				<center><a href="javascript:void(0)" class="easyui-linkbutton" plain="true" style="border: 1px #8D9190 solid;" onclick="location.href='eduQuery.html'">取消</a>&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" class="easyui-linkbutton" plain="true" style="border: 1px #05CCB5 solid;background: #05CCB5;" onclick="location.href='projectQuery.html'">提交</a></center>
+			  </div>	
+    </div>
+    <script type="text/javascript" charset="utf-8" src="{% static 'pm/script/js/umeditor/umeditor.config.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" src="{% static 'pm/script/js/umeditor/umeditor.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'pm/script/js/umeditor/lang/zh-cn/zh-cn.js' %}"></script>
+	<script type="text/javascript" src="{% static 'pm/script/JQueryUI/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'pm/script/JQueryUI/jquery.easyui.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'pm/script/JQueryUI/locale/easyui-lang-zh_CN.js' %}"></script>
+
+    
+  
+
+    <script type="text/javascript">
+	
+            (function($){
+            function pagerFilter(data){
+                if ($.isArray(data)){   // is array
+                    data = {
+                        total: data.length,
+                        rows: data
+                    }
+                }
+                var target = this;
+                var dg = $(target);
+                var state = dg.data('datagrid');
+                var opts = dg.datagrid('options');
+                if (!state.allRows){
+                    state.allRows = (data.rows);
+                }
+                if (!opts.remoteSort && opts.sortName){
+                    var names = opts.sortName.split(',');
+                    var orders = opts.sortOrder.split(',');
+                    state.allRows.sort(function(r1,r2){
+                        var r = 0;
+                        for(var i=0; i<names.length; i++){
+                            var sn = names[i];
+                            var so = orders[i];
+                            var col = $(target).datagrid('getColumnOption', sn);
+                            var sortFunc = col.sorter || function(a,b){
+                                return a==b ? 0 : (a>b?1:-1);
+                            };
+                            r = sortFunc(r1[sn], r2[sn]) * (so=='asc'?1:-1);
+                            if (r != 0){
+                                return r;
+                            }
+                        }
+                        return r;
+                    });
+                }
+                var start = (opts.pageNumber-1)*parseInt(opts.pageSize);
+                var end = start + parseInt(opts.pageSize);
+                data.rows = state.allRows.slice(start, end);
+                return data;
+            }
+
+            var loadDataMethod = $.fn.datagrid.methods.loadData;
+            var deleteRowMethod = $.fn.datagrid.methods.deleteRow;
+            $.extend($.fn.datagrid.methods, {
+                clientPaging: function(jq){
+                    return jq.each(function(){
+                        var dg = $(this);
+                        var state = dg.data('datagrid');
+                        var opts = state.options;
+                        opts.loadFilter = pagerFilter;
+                        var onBeforeLoad = opts.onBeforeLoad;
+                        opts.onBeforeLoad = function(param){
+                            state.allRows = null;
+                            return onBeforeLoad.call(this, param);
+                        }
+                        var pager = dg.datagrid('getPager');
+                        pager.pagination({
+                            onSelectPage:function(pageNum, pageSize){
+                                opts.pageNumber = pageNum;
+                                opts.pageSize = pageSize;
+                                pager.pagination('refresh',{
+                                    pageNumber:pageNum,
+                                    pageSize:pageSize
+                                });
+                                dg.datagrid('loadData',state.allRows);
+                            }
+                        });
+                        $(this).datagrid('loadData', state.data);
+                        if (opts.url){
+                            $(this).datagrid('reload');
+                        }
+                    });
+                },
+                loadData: function(jq, data){
+                    jq.each(function(){
+                        $(this).data('datagrid').allRows = null;
+                    });
+                    return loadDataMethod.call($.fn.datagrid.methods, jq, data);
+                },
+                deleteRow: function(jq, index){
+                    return jq.each(function(){
+                        var row = $(this).datagrid('getRows')[index];
+                        deleteRowMethod.call($.fn.datagrid.methods, $(this), index);
+                        var state = $(this).data('datagrid');
+                        if (state.options.loadFilter == pagerFilter){
+                            for(var i=0; i<state.allRows.length; i++){
+                                if (state.allRows[i] == row){
+                                    state.allRows.splice(i,1);
+                                    break;
+                                }
+                            }
+                            $(this).datagrid('loadData', state.allRows);
+                        }
+                    });
+                },
+                getAllRows: function(jq){
+                    return jq.data('datagrid').allRows;
+                }
+            })
+        })(jQuery);
+
+        function getData(){
+            var rows = [];
+            for(var i=1; i<=1; i++){
+                rows.push({
+                    programName: '中层干部培训',
+                    start_date: '2016.7.3~2016.7.30',
+                    credit:'3',
+                    style:'线上'
+                });
+				rows.push({
+                    programName: '新校长培训班',
+                    start_date: '2016.5.1~2016.6.1',
+                    credit:'6',
+                    style:'线下'
+                });
+				rows.push({
+                    programName: '干部培训',
+                    start_date: '2016.5.1~2016.6.1',
+                    credit:'6',
+                    style:'混合'
+                });
+            }
+            return rows;
+        }
+        
+        $(function(){
+            $('#dg').datagrid({data:getData()}).datagrid('clientPaging');
+        });    
+		var state = UM.getEditor('editor-state');
+		 state.setWidth("98%");
+		 $(".edui-body-container").css("width", "98%");
+
+		$(window).resize(function(){
+			setTimeout(function(){
+				$('.easyui-tabs1').tabs("resize");
+				state.setWidth("98%");
+				$(".edui-body-container").css("width", "98%");	
+			 },1);
+		}).resize();
+    </script>
+</body> 
+</html>

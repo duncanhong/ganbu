@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en"> 
+<head> 
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>主页</title> 
+<link rel="stylesheet" href="{% static 'pm/css/base.css' %}" >
+<link rel="stylesheet" href="{% static 'pm/css/custom/uimaker/easyui.css' %}">
+<link rel="stylesheet" href="{% static 'pm/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'pm/css/style.css' %}">
+</head> 
+<body>
+    	<div id="bd ">
+		   	<div id="p" class="easyui-panel" title="活动参与详情" style="width:100%;padding:10px;">
+				<div style="display: inline-block;">
+					<blockquote style="padding: 0px 10px;margin-left: 40px;">
+						<span style="font-size: 14px;">项目名称 : </span><span id="name" name="name"><strong>班主任干训班</strong></span>
+					</blockquote>
+					<blockquote style="padding: 0px 10px;margin-left: 40px;">
+						<span style="font-size: 14px;">项目时间 : </span><span id="start_date" name="start_date"><strong>2016.5.1至2016.6.1</strong></span>
+					</blockquote>
+				</div>
+				<div style="float: right;margin-right: 40%;">
+			   		<blockquote style="padding: 0px 10px;margin-left: 40px;">
+						<span style="font-size: 14px;">项目申报人 : </span><span id="applicant" name="applicant"><strong>张老师</strong></span>
+					</blockquote>
+					<blockquote style="padding: 0px 10px;margin-left: 40px;">
+						<span style="font-size: 14px;">项目学分 : </span><span id="credit" name="credit"><strong>5</strong></span>
+					</blockquote>
+				</div>
+				<div>
+					<blockquote style="padding: 0px 10px;margin-left: 40px;">
+						<span style="font-size: 14px;">班级名称 : </span><span><strong>班主任干训班</strong></span>
+					</blockquote>
+				</div>
+				<hr>
+				<div style="display: inline-block;width: 815px">
+					<blockquote style="padding: 0px 10px;margin-left: 40px;">
+						<span style="font-size: 14px;">项目内容 : </span>
+						<ul style="float: right;margin-top: 3px" id="content" name="content">
+							<li><strong>1、继续深入开展创先争优活动；</strong></li>
+							<li><strong>2、扎实开展核心价值观教育实践活动；</strong></li>
+							<li><strong>3、坚持从严教育干部，提高学习培训覆盖面和实效性，结合重点工作适时举行专题培训，优化干部知识结构，开阔干部思维视野</strong></li>
+							<li><strong>4、坚持以人为本、按需施教，联系实际、学以致用，全员培训、突出重点的原则</strong></li>
+						</ul>
+					</blockquote>
+				</div>
+				<hr>
+				<div style="border:1px solid #F1F1F1;width: 90%;margin: 0 auto;">
+					<div class="conditions" style="padding:20px 60px;">
+			            <span class="con-span" style="font-size: 14px;">活动名称 : </span><input class="easyui-textbox" type="text" id="name" name="name" value="请输入活动名称" style="width:90%"></input>
+			        </div>
+			        <div class="conditions" style="padding:0px 60px;">
+			        	<span class="con-span" style="font-size: 14px">活动时间 : </span><input id="HDSJ" class="easyui-datetimebox" ></input>
+			            <span class="con-span" style="font-size: 14px">作者截止日期 : </span><input id="ZZJSSJ" class="easyui-datetimebox" ></input>
+			        </div>
+			        <div class="conditions" style="padding:20px 60px;">
+			        <span class="con-span" style="font-size: 14px">活动类别 : </span>
+			        	<label class="radio-inline" style="width:8%;">
+							<input type="radio" id="type" name="type" value="radiobutton" checked="true">专题报告
+						</label>
+						<label class="radio-inline" style="width:8%;"> 
+							<input type="radio" id="type" name="type">分组研讨
+						</label>
+						<label class="radio-inline" style="width:8%;">
+							<input type="radio" id="type" name="type">主题论坛
+						</label>
+						<label class="radio-inline" style="width:8%;">
+							<input type="radio" id="type" name="type">学习观摩
+						</label>
+						<label class="radio-inline" style="width:8%;">
+							<input type="radio" id="type" name="type">其他
+						</label>
+					</div>
+					<div class="conditions" style="padding:0px 60px;">
+			            <span class="con-span" style="font-size: 14px">主讲教室 : </span><input class="easyui-textbox" type="text" name="code" value="中国中学一楼103会议室" style="width:90%">
+			        </div>
+			        <div class="conditions" style="padding:20px 60px;">
+			            <span class="con-span" style="font-size: 14px">参与人员 : </span><select class="easyui-combobox" id="user" name="user" style="width:90%"><option>李明明</option></select>
+			        </div>
+			        <div class="conditions" style="padding:0px 32px;">
+			            <span class="con-span" style="font-size: 14px;">上传活动资源 : </span><select id="SCHDZL" class="easyui-combobox" name="activity_material" ><option>模板1</option></select>
+			        </div>
+			        <div class="conditions" style="padding:20px 60px;">
+			            <span class="con-span" style="font-size: 14px">活动内容 : </span><input class="easyui-textbox" type="text" id="content" name="content" data-options="multiline:true" style="width:90%;height:60px">
+			        </div>
+			        <div class="conditions" style="padding:0px 60px 20px 60px;">
+			            <span class="con-span" style="font-size: 14px">活动要求 : </span><input class="easyui-textbox" type="text" id="requirement" name="requirement" data-options="multiline:true" style="width:90%;height:60px">
+			        </div>
+			        <div style="text-align: center;margin-bottom: 20px">
+				        <a href="#" class="easyui-linkbutton" >取消</a>
+		           		<a href="#" class="easyui-linkbutton" data-options="selected:true">提交</a>
+			        </div>
+			        
+			        </div>
+				</div>
+		</div>
+
+
+    <script type="text/javascript" src="{% static 'pm/script/JQueryUI/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'pm/script/JQueryUI/jquery.easyui.min.js' %}"></script>
+    <!-- <script type="text/javascript" src="js/menu.js"></script> -->
+    <script type="text/javascript" src="{% static 'pm/script/js/main.js' %}"></script>
+  
+
+    
+    <script type="text/javascript">
+   
+    </script>
+</body> 
+</html>

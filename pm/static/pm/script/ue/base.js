@@ -1,0 +1,1 @@
+var schema_url = "http://192.168.110.5:8080/MNS"||"localhost:8080/MNS";

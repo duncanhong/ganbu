@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en"> 
+<head> 
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title></title>
+
+<link rel="stylesheet" href="{% static 'pm/css/base.css' %}" >
+<link rel="stylesheet" href="{% static 'pm/css/custom/uimaker/easyui.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'pm/css/custom/uimaker/icon.css' %}">
+<link rel="stylesheet" href="{% static 'pm/css/process.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'script/js/umeditor/themes/default/css/umeditor.css' %}">
+
+</head> 
+<body>
+    <div class="container">
+       <div id="p" class="easyui-panel" title="创建项目" style="width:100%;height:auto;padding:10px;">
+		<table class="kv-table">
+			<tbody>
+				<tr>
+					<td class="kv-label">项目名称</td>
+					<td class="kv-content" id="ic_XMMC" style="display:none;">中层干部培训</td>
+					<td class="kv-content" id="ic_XMMC1" style="display:none;width:250px"><input class="easyui-textbox" type="text" name="code" style="width:166px;height:25px;line-height:25px;"></input></td>
+					<td class="kv-label">项目时间</td>
+					<td class="kv-content" id="ic_XMSJ1" style="display:none;">2016.7.3</td>
+					<td class="kv-content" id="ic_XMSJ3" style="display:none;"><input class="easyui-datebox" style="width:166px;"></td>
+					<td class="kv-content">到</td>
+					<td class="kv-content" id="ic_XMSJ2" style="display:none;">2016.7.30</td>
+					<td class="kv-content" id="ic_XMSJ4" style="display:none;"><input class="easyui-datebox" style="width:166px;"></td>
+				</tr>
+				<tr>
+					<td class="kv-label">项目级别</td>
+					<td class="kv-content" id="ic_XMJB" style="display:none"><select class="easyui-combobox" panelHeight="auto" style="width:166px;height:25px;line-height:25px;">
+						<option value ="0">请选择</option>
+					    <option value ="1" selected = "selected" >区级共享</option>
+					    <option value="2">校级共享</option></td>
+					<td class="kv-content" id="ic_XMJB1" style="display:none;"><select class="easyui-combobox" panelHeight="auto" style="width:166px;height:25px;line-height:25px;">
+						<option value ="0">请选择</option>
+					    <option value ="1" >区级共享</option>
+					    <option value="2">校级共享</option></td>
+					<td class="kv-label">项目类型</td>
+					<td class="kv-content" id="ic_XMLX" style="display:none"><select class="easyui-combobox" panelHeight="auto" style="width:166px;height:25px;line-height:25px;">
+						<option value ="0">请选择</option>
+					    <option value ="1" selected = "selected" >师德与素养</option>
+					    <option value="2">技能与培训</option>
+						<option value="3">实践与体验</option></td>
+					<td class="kv-content" id="ic_XMLX1" style="display:none;"><select class="easyui-combobox" panelHeight="auto" style="width:166px;height:25px;line-height:25px;">
+						<option value ="0">请选择</option>
+					    <option value ="1" >师德与素养</option>
+					    <option value="2">技能与培训</option>
+						<option value="3">实践与体验</option></td>
+					<td class="kv-label">培训形式</td>
+					<td class="kv-content" id="ic_PXXS" style="display:none"><select class="easyui-combobox" panelHeight="auto" style="width:166px;height:25px;line-height:25px;">
+						<option value ="0">请选择</option>
+					    <option value ="1" selected = "selected" >线上</option>
+					    <option value="2">线下</option>
+						<option value="3">混合</option></td>
+					<td class="kv-content" id="ic_PXXS1" style="display:none;"><select class="easyui-combobox" panelHeight="auto" style="width:166px;height:25px;line-height:25px;">
+						<option value ="0">请选择</option>
+					    <option value ="1">线上</option>
+					    <option value="2">线下</option>
+						<option value="3">混合</option></td>
+					
+				</tr>
+				<tr>
+					<td class="kv-label">培训对象</td>
+					<td class="kv-content" colspan="3" id="ic_PXDX" style="display:none;">
+					<input type="checkbox"checked>中层干部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="checkbox">后备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="checkbox">新任校园长&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="checkbox">在职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="checkbox">骨干&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td class="kv-content" colspan="3" id="ic_PXDX1" style="display:none;">
+					<input type="checkbox">中层干部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="checkbox">后备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="checkbox">新任校园长&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="checkbox">在职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="checkbox">骨干&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td class="kv-label">项目申报人</td>
+					<td class="kv-content" id="ic_XMSBR" style="display:none;">管理员</td>
+					<td class="kv-content" id="ic_XMSBR1" style="display:none;"><input class="easyui-textbox" type="text" name="code" style="width:166px;height:25px;line-height:25px;"></input></td>
+				</tr>
+				<tr>
+					<td class="kv-label">参与人员</td>
+					<td class="kv-content" id="ic_CYRY" style="display:none;">全部人员</td>
+					<td class="kv-content" id="ic_CYRY1" style="display:none;"><input class="easyui-textbox" type="text" name="code" style="width:166px;height:25px;line-height:25px;"></input><a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="destroyUser()">选择</a></td>
+					<td class="kv-label">项目课时</td>
+					<td class="kv-content" id="ic_XMKS" style="display:none;">10</td>
+					<td class="kv-content" id="ic_XMKS1" style="display:none;"><input class="easyui-textbox" type="text" name="code" style="width:166px;height:25px;line-height:25px;"></input></td>
+					<td class="kv-label">项目学分</td>
+					<td class="kv-content" id="ic_XMXF" style="display:none;">3</td>
+					<td class="kv-content" id="ic_XMXF1" style="display:none;"><input class="easyui-textbox" type="text" name="code" style="width:166px;height:25px;line-height:25px;"></input></td>
+				</tr>
+				<tr>
+					<td class="kv-label">项目目标</td>
+					<td class="kv-content" id="ic_XMMB" style="display:none;">项目目标</td>
+					<td class="kv-content" id="ic_XMMB1" style="display:none;"><input class="easyui-textbox" type="text" name="code" style="width:166px;height:25px;line-height:25px;"></input></td>
+					<td class="kv-label">项目内容</td>
+					<td class="kv-content" id="ic_XMNR" colspan="3" style="display:none;">项目内容</td>
+					<td class="kv-content" id="ic_XMNR1" colspan="3" style="display:none;"><input class="easyui-textbox" type="text" name="code" style="width:616px;height:25px;line-height:25px;"></input></td>
+				</tr>
+				<tr>
+					<td class="kv-label">项目申请表</td>
+					<td class="kv-content" id="ic_XMSQB" style="display:none;" colspan="5">
+						<a href="javascript:void(0)">项目申报表文件.doc</a>
+					</td>
+					<td class="kv-content" id="ic_XMSQB1" style="display:none;" colspan="5">
+						<input class="easyui-filebox" label="File1:" labelPosition="top" data-options="prompt:'选择文件...'" style="width:600px">	
+					</td>
+				</tr>
+				<tr>
+					<td class="kv-label">项目资源</td>
+					<td class="kv-content" id="ic_XMZY" style="display:none;" colspan="5">
+						<a href="javascript:void(0)">项目资源包文件.rar</a>
+					</td>
+					<td class="kv-content" id="ic_XMZY1" style="display:none;" colspan="5">
+						<input class="easyui-filebox" label="File1:" labelPosition="top" data-options="prompt:'选择文件...'" style="width:600px">	
+					</td>
+				</tr>
+				<tr>
+					<td class="kv-content" id="newtable" colspan="6" style="display:none;">
+						<center><a href="javascript:void(0)" class="easyui-linkbutton" plain="true" style="border: 1px #8D9190 solid;" onclick="location.href='projectQuery.html'">取消</a>&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" class="easyui-linkbutton" plain="true" style="border: 1px #05CCB5 solid;background: #05CCB5;" onclick="location.href='projectQuery.html'">提交</a></center>
+					</td>
+					<td class="kv-content" id="Auditingtable" colspan="6" style="display:none;">
+						<center><a href="javascript:void(0)" class="easyui-linkbutton" plain="true" style="border: 1px #8D9190 solid;" onclick="destroyUser()">不通过</a>&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" class="easyui-linkbutton" plain="true" style="border: 1px #8D9190 solid;" onclick="location.href='projectQuery.html'">通过</a>&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" class="easyui-linkbutton" plain="true" style="border: 1px #8D9190 solid;" onclick="destroyUser()">返回修改</a></center>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+      </div>
+    </div>
+	<script type="text/javascript" src="{% static 'pm/script/JQueryUI/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'pm/script/JQueryUI/jquery.easyui.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'pm/script/JQueryUI/locale/easyui-lang-zh_CN.js' %}"></script>
+  
+
+    
+    <script type="text/javascript">
+         //返回时获取url？后参数，用来保存学生状态
+		var Request = new Object();
+		Request = GetRequest();
+		var active = Request["active"];//获取url？号后面的参数 
+		$(function(){ 
+			initData(active);
+			
+		}); 
+		//获取url？号后面的参数
+		function GetRequest() { 
+		   var url = location.search; //获取url中"?"符后的字串 
+		   var theRequest = new Object(); 
+		   if (url.indexOf("?") != -1) { 
+			  var str = url.substr(1); 
+			  strs = str.split("&"); 
+			  for(var i = 0; i < strs.length; i ++) { 
+				 theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]); 
+			  } 
+		   } 
+		   return theRequest; 
+		}
+		
+		function initData(id){
+			if(id=="new"){
+				$("#ic_XMMC1").show();
+				$("#ic_XMSJ3").show();
+				$("#ic_XMSJ4").show();
+				$("#ic_XMJB1").show();
+				$("#ic_XMLX1").show();
+				$("#ic_PXXS1").show();
+				$("#ic_XMSBR1").show();
+				$("#ic_PXDX1").show();
+				$("#ic_CYRY1").show();
+				$("#ic_XMKS1").show();
+				$("#ic_XMXF1").show();
+				$("#ic_XMMB1").show();
+				$("#ic_XMNR1").show();
+				$("#ic_XMSQB1").show();
+				$("#ic_XMZY1").show();
+				$("#newtable").show();
+				
+				$("#ic_XMMC").hide();
+				$("#ic_XMSJ1").hide();
+				$("#ic_XMSJ2").hide();
+				$("#ic_XMJB").hide();
+				$("#ic_XMLX").hide();
+				$("#ic_PXXS").hide();
+				$("#ic_XMSBR").hide();
+				$("#ic_PXDX").hide();
+				$("#ic_CYRY").hide();
+				$("#ic_XMKS").hide();
+				$("#ic_XMXF").hide();
+				$("#ic_XMMB").hide();
+				$("#ic_XMNR").hide();
+				$("#ic_XMSQB").hide();
+				$("#ic_XMZY").hide();
+				$("#Auditingtable").hide();
+			}else if(active=="Auditing"){
+				$("#ic_XMMC1").hide();
+				$("#ic_XMSJ3").hide();
+				$("#ic_XMSJ4").hide();
+				$("#ic_XMJB1").hide();
+				$("#ic_XMLX1").hide();
+				$("#ic_PXXS1").hide();
+				$("#ic_XMSBR1").hide();
+				$("#ic_PXDX1").hide();
+				$("#ic_CYRY1").hide();
+				$("#ic_XMKS1").hide();
+				$("#ic_XMXF1").hide();
+				$("#ic_XMMB1").hide();
+				$("#ic_XMNR1").hide();
+				$("#ic_XMSQB1").hide();
+				$("#ic_XMZY1").hide();
+				$("#newtable").hide();
+				
+				$("#ic_XMMC").show();
+				$("#ic_XMSJ1").show();
+				$("#ic_XMSJ2").show();
+				$("#ic_XMJB").show();
+				$("#ic_XMLX").show();
+				$("#ic_PXXS").show();
+				$("#ic_XMSBR").show();
+				$("#ic_PXDX").show();
+				$("#ic_CYRY").show();
+				$("#ic_XMKS").show();
+				$("#ic_XMXF").show();
+				$("#ic_XMMB").show();
+				$("#ic_XMNR").show();
+				$("#ic_XMSQB").show();
+				$("#ic_XMZY").show();
+				$("#Auditingtable").show();
+			}else if(active=="search"){
+				$("#ic_XMMC1").hide();
+				$("#ic_XMSJ3").hide();
+				$("#ic_XMSJ4").hide();
+				$("#ic_XMJB1").hide();
+				$("#ic_XMLX1").hide();
+				$("#ic_PXXS1").hide();
+				$("#ic_XMSBR1").hide();
+				$("#ic_PXDX1").hide();
+				$("#ic_CYRY1").hide();
+				$("#ic_XMKS1").hide();
+				$("#ic_XMXF1").hide();
+				$("#ic_XMMB1").hide();
+				$("#ic_XMNR1").hide();
+				$("#ic_XMSQB1").hide();
+				$("#ic_XMZY1").hide();
+				$("#newtable").hide();
+				
+				$("#ic_XMMC").show();
+				$("#ic_XMSJ1").show();
+				$("#ic_XMSJ2").show();
+				$("#ic_XMJB").show();
+				$("#ic_XMLX").show();
+				$("#ic_PXXS").show();
+				$("#ic_XMSBR").show();
+				$("#ic_PXDX").show();
+				$("#ic_CYRY").show();
+				$("#ic_XMKS").show();
+				$("#ic_XMXF").show();
+				$("#ic_XMMB").show();
+				$("#ic_XMNR").show();
+				$("#ic_XMSQB").show();
+				$("#ic_XMZY").show();
+				$("#Auditingtable").hide();
+			}
+		}
+		
+    </script>
+</body> 
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en"> 
+<head> 
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title></title> 
+
+<link rel="stylesheet" href="{% static 'pm/css/base.css' %}" >
+<link rel="stylesheet" href="{% static 'pm/css/custom/uimaker/easyui.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'pm/css/custom/uimaker/icon.css' %}">
+<link rel="stylesheet" href="{% static 'pm/css/process.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'script/js/umeditor/themes/default/css/umeditor.css' %}">
+
+</head> 
+<body>
+    <div class="container">
+       <div id="p" class="easyui-panel" title="组班管理" style="width:100%;padding:10px;">
+		<table class="kv-table">
+			<tbody>
+				<tr>
+					<td class="kv-label" style="width:25%">班级名称</td>
+					<td class="kv-content" id="ic_className" style="display:none;width:20%">中层干部培训班</td>
+					<td class="kv-content" id="ic_className1" style="display:none;width:20%"><input class="easyui-textbox" type="text" name="code" style="width:166px;height:25px;line-height:25px;"></input></td>
+					<td class="kv-label" style="width:10%" >班级申报人</td>
+					<td class="kv-content" id="ic_classDeclaration" style="display:none;">陈明明</td>
+					<td class="kv-content" id="ic_classDeclaration1" style="display:none;"><input class="easyui-textbox" type="text" name="code" style="width:166px;height:25px;line-height:25px;"></input></td>
+					
+				</tr>
+				<tr>
+					<td class="kv-label">培训日期</td>
+					<td class="kv-content" id="ic_trainingDate1" style="display:none;">2016.7.3</td>
+					<td class="kv-content" id="ic_trainingDate2" style="display:none;">到</td>
+					<td class="kv-content" id="ic_trainingDate3" style="display:none;">2016.7.30</td>
+					<td class="kv-content" id="ic_trainingDate4" style="display:none;"><input class="easyui-datebox" style="width:166px;"></td>
+					<td class="kv-content" id="ic_trainingDate5" style="display:none;">到</td>
+					<td class="kv-content" id="ic_trainingDate6" style="display:none;"><input class="easyui-datebox" style="width:166px;"></td>
+				</tr>
+				<tr>
+					<td class="kv-label">当前状态</td>
+					<td class="kv-content" id="ic_status" colspan="3" style="display:none"><select class="easyui-combobox" panelHeight="auto" style="width:166px;height:25px;line-height:25px;">
+						<option value ="0">请选择</option>
+					    <option value ="1" selected = "selected" >未开班</option>
+					    <option value="2">已开班</option></td>
+					<td class="kv-content" id="ic_status1" colspan="3" style="display:none;"><select class="easyui-combobox" panelHeight="auto" style="width:166px;height:25px;line-height:25px;">
+						<option value ="0">请选择</option>
+					    <option value ="1" >未开班</option>
+					    <option value="2">已开班</option></td>
+				</tr>
+				
+			</tbody>
+		</table>
+		<div class="container">
+		   <table id="dg" style="width:100%;height:auto;" title="班级学员管理" data-options="
+					rownumbers:true,
+					toolbar:'#toolbar',
+					singleSelect:false,
+					autoRowHeight:false,
+					pagination:true,
+					fitColumns:true,
+					striped:true,
+					checkOnSelect:false,
+					selectOnCheck:false,
+					collapsible:true,
+					toolbar:'#tb',
+					pageSize:10">
+				<thead>
+					<tr>
+						<th field="user_name" width="110">学员姓名</th>
+						<th field="sex" width="110">性别</th>
+						<th field="school" width="110">所在学校</th>
+						<th field="date" width="110">报名时间</th>
+					</tr>
+				</thead>
+			</table>
+		  <div id="tb" style="padding:0 30px;">
+			<div id="toolbar">
+			  <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="doToolbar('new');">添加学员</a>
+			  <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="editUser()">移除班级</a>
+		  </div>
+			学员姓名: <input class="easyui-textbox" type="text" name="code" style="width:166px;height:35px;line-height:35px;"></input>
+			<a href="#" class="easyui-linkbutton" iconCls="icon-search" data-options="selected:true">查询</a>
+			<a href="#" class="easyui-linkbutton" iconCls="icon-reload">重置</a>
+		  </div>
+		</div>
+		<center><a href="javascript:void(0)" class="easyui-linkbutton" plain="true" style="border: 1px #8D9190 solid;" onclick="location.href='classQuery.html'">取消</a>&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" class="easyui-linkbutton" plain="true" style="border: 1px #05CCB5 solid;background: #05CCB5;" onclick="location.href='../project/projectQuery.html'">提交</a></center>
+      </div>	
+	  	<!-- 教学标准信息新建编辑 -->
+		<div id="createUserInfo" style="overflow:hidden;">
+			<form id="form1" method='post'>
+				<table style="width:100%;" class="kv-table">
+					<tr>
+						<td class="kv-label">学员姓名</td>
+						<td class="kv-content">
+							<input name="ic_user_name" id="ic_user_name" class="easyui-textbox" style="width:166px;" maxlength="50" >
+						</td>
+						<td class="kv-label">性别</td>
+						<td class="kv-content">
+							<select class="easyui-combobox" panelHeight="auto" style="width:166px;height:25px;line-height:25px;">
+							<option value ="0">请选择</option>
+							<option value ="1">男性</option>
+							<option value="2">女性</option>
+						</td>
+					</tr>
+					<tr>
+						<td class="kv-label">所在学校</td>
+						<td class="kv-content" colspan='3'>
+							<input name="ic_user_name" id="ic_user_name" class="easyui-textbox" style="width:166px;" maxlength="50">
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+    </div>
+	<script type="text/javascript" src="{% static 'pm/script/JQueryUI/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'pm/script/JQueryUI/jquery.easyui.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'pm/script/JQueryUI/locale/easyui-lang-zh_CN.js' %}"></script>
+
+
+
+    
+    <script type="text/javascript">
+         //返回时获取url？后参数，用来保存学生状态
+		var Request = new Object();
+		Request = GetRequest();
+		var active = Request["active"];//获取url？号后面的参数 
+		$(function(){ 
+			initData(active);
+			initDialog();
+		}); 
+		//获取url？号后面的参数
+		function GetRequest() { 
+		   var url = location.search; //获取url中"?"符后的字串 
+		   var theRequest = new Object(); 
+		   if (url.indexOf("?") != -1) { 
+			  var str = url.substr(1); 
+			  strs = str.split("&"); 
+			  for(var i = 0; i < strs.length; i ++) { 
+				 theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]); 
+			  } 
+		   } 
+		   return theRequest; 
+		}
+		
+		function initData(id){
+			if(id=="new"){
+				$("#ic_className1").show();
+				$("#ic_classDeclaration1").show();
+				$("#ic_trainingDate4").show();
+				$("#ic_trainingDate5").show();
+				$("#ic_trainingDate6").show();
+				$("#ic_status1").show();
+				
+				$("#ic_className").hide();
+				$("#ic_classDeclaration").hide();
+				$("#ic_trainingDate1").hide();
+				$("#ic_trainingDate2").hide();
+				$("#ic_trainingDate3").hide();
+				$("#ic_status").hide();
+			}else if(active=="edit"){
+				$("#ic_className1").hide();
+				$("#ic_classDeclaration4").hide();
+				$("#ic_classDeclaration5").hide();
+				$("#ic_classDeclaration6").hide();
+				$("#ic_trainingDate1").hide();
+				$("#ic_status1").hide();
+				
+				$("#ic_className").show();
+				$("#ic_classDeclaration").show();
+				$("#ic_trainingDate1").show();
+				$("#ic_trainingDate2").show();
+				$("#ic_trainingDate3").show();
+				$("#ic_status").show();
+			}
+		}
+		(function($){
+            function pagerFilter(data){
+                if ($.isArray(data)){   // is array
+                    data = {
+                        total: data.length,
+                        rows: data
+                    }
+                }
+                var target = this;
+                var dg = $(target);
+                var state = dg.data('datagrid');
+                var opts = dg.datagrid('options');
+                if (!state.allRows){
+                    state.allRows = (data.rows);
+                }
+                if (!opts.remoteSort && opts.sortName){
+                    var names = opts.sortName.split(',');
+                    var orders = opts.sortOrder.split(',');
+                    state.allRows.sort(function(r1,r2){
+                        var r = 0;
+                        for(var i=0; i<names.length; i++){
+                            var sn = names[i];
+                            var so = orders[i];
+                            var col = $(target).datagrid('getColumnOption', sn);
+                            var sortFunc = col.sorter || function(a,b){
+                                return a==b ? 0 : (a>b?1:-1);
+                            };
+                            r = sortFunc(r1[sn], r2[sn]) * (so=='asc'?1:-1);
+                            if (r != 0){
+                                return r;
+                            }
+                        }
+                        return r;
+                    });
+                }
+                var start = (opts.pageNumber-1)*parseInt(opts.pageSize);
+                var end = start + parseInt(opts.pageSize);
+                data.rows = state.allRows.slice(start, end);
+                return data;
+            }
+
+            var loadDataMethod = $.fn.datagrid.methods.loadData;
+            var deleteRowMethod = $.fn.datagrid.methods.deleteRow;
+            $.extend($.fn.datagrid.methods, {
+                clientPaging: function(jq){
+                    return jq.each(function(){
+                        var dg = $(this);
+                        var state = dg.data('datagrid');
+                        var opts = state.options;
+                        opts.loadFilter = pagerFilter;
+                        var onBeforeLoad = opts.onBeforeLoad;
+                        opts.onBeforeLoad = function(param){
+                            state.allRows = null;
+                            return onBeforeLoad.call(this, param);
+                        }
+                        var pager = dg.datagrid('getPager');
+                        pager.pagination({
+                            onSelectPage:function(pageNum, pageSize){
+                                opts.pageNumber = pageNum;
+                                opts.pageSize = pageSize;
+                                pager.pagination('refresh',{
+                                    pageNumber:pageNum,
+                                    pageSize:pageSize
+                                });
+                                dg.datagrid('loadData',state.allRows);
+                            }
+                        });
+                        $(this).datagrid('loadData', state.data);
+                        if (opts.url){
+                            $(this).datagrid('reload');
+                        }
+                    });
+                },
+                loadData: function(jq, data){
+                    jq.each(function(){
+                        $(this).data('datagrid').allRows = null;
+                    });
+                    return loadDataMethod.call($.fn.datagrid.methods, jq, data);
+                },
+                deleteRow: function(jq, index){
+                    return jq.each(function(){
+                        var row = $(this).datagrid('getRows')[index];
+                        deleteRowMethod.call($.fn.datagrid.methods, $(this), index);
+                        var state = $(this).data('datagrid');
+                        if (state.options.loadFilter == pagerFilter){
+                            for(var i=0; i<state.allRows.length; i++){
+                                if (state.allRows[i] == row){
+                                    state.allRows.splice(i,1);
+                                    break;
+                                }
+                            }
+                            $(this).datagrid('loadData', state.allRows);
+                        }
+                    });
+                },
+                getAllRows: function(jq){
+                    return jq.data('datagrid').allRows;
+                }
+            })
+        })(jQuery);
+
+        function getData(){
+            var rows = [];
+            for(var i=1; i<=1; i++){
+                rows.push({
+                    user_name: '袁成兰',
+                    sex: '女',
+                    school: '高安一小',
+                    date:'2016-06-10'
+                });
+				rows.push({
+                    user_name: '张婷',
+                    sex: '女',
+                    school: '田林四小',
+                    date:'2016-06-10'
+                });
+				rows.push({
+                    user_name: '黄展新',
+                    sex: '男',
+                    school: '东二小学',
+                    date:'2016-06-10'
+                });
+            }
+            return rows;
+        }
+        
+        $(function(){
+            $('#dg').datagrid({data:getData()}).datagrid('clientPaging');
+        });    
+			/**加载 dialog控件**/
+			function initDialog(){
+				$('#createUserInfo').dialog({   
+					width: 700,//宽度设置   
+					height: 163,//高度设置 
+					modal:true,
+					closed: true,   
+					cache: false, 
+					draggable:false,//是否可移动dialog框设置
+					toolbar:[{
+						//保存编辑
+						text:'保存',
+						iconCls:'icon-save',
+						handler:function(){
+							//传入save值进入doToolbar方法，用于保存
+							doToolbar('save');
+						}
+					}],
+					//打开事件
+					onOpen:function(data){},
+					//读取事件
+					onLoad:function(data){},
+					//关闭事件
+					onClose:function(data){
+						
+					}
+				});
+			}
+			/**工具栏按钮调用方法，传入按钮的id
+		@id 当前按钮点击事件
+	**/
+	function doToolbar(id){
+		
+		//判断获取参数为new，执行新建操作
+		if(id == 'new'){
+			//打开dialog
+			$('#createUserInfo').dialog({   
+				title: '创建学员信息'
+			});
+			$('#createUserInfo').dialog('open');
+		}
+	}
+    </script>
+</body> 
+</html>

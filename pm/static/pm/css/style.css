@@ -1,0 +1,106 @@
+#pf-hd .logo {
+	width: 100%;
+	height: 70px;
+	background: url(../images/main/xhgb_logo.png) no-repeat left center;
+	text-indent: 100px;
+	float: left;
+}
+#pf-hd h1 {
+	font-size: 22px;
+	color:#F3FAF8;
+	font-family:幼圆;
+	font-weight: bold; 
+}
+
+@media (min-width: 1920px) and (max-width: 2559px){
+	#HDSJ,#ZZJSSJ{
+		width: 34.3%
+	}
+	.radio-inline{
+		width: 8%
+	}
+	#SCHDZL{
+		width: 74.3%
+	}
+	.SHDSJ{
+		margin-left: 800px
+	}
+	.SZYJZSJ{
+		margin-left: 748px
+	}
+}
+@media (min-width: 1366px) and (max-width: 1919px){
+	#HDSJ,#ZZJSSJ{
+		width: 31.8%
+	}
+	.radio-inline{
+		width: 8%
+	}
+	#SCHDZL{
+		width: 71.6%
+	}
+	.SHDSJ{
+		margin-left: 550px
+	}
+	.SZYJZSJ{
+		margin-left: 498px
+	}
+}
+/*当页面大于1200px 时，大屏幕，主要是PC 端*/
+@media (min-width: 1200px) and (max-width: 1365px){
+	#HDSJ,#ZZJSSJ{
+		width: 31.2%
+	}
+	.radio-inline{
+		width: 8%
+	}
+	#SCHDZL{
+		width: 71%
+	}
+	.SHDSJ{
+		margin-left: 500px
+	}
+	.SZYJZSJ{
+		margin-left: 448px
+	}
+}
+
+/*在992 和1199 像素之间的屏幕里，中等屏幕，分辨率低的PC*/
+@media (min-width: 992px) and (max-width: 1199px) {
+	#HDSJ,#ZZJSSJ{
+		width: 28.8%
+	}
+	.radio-inline{
+		width: 9%
+	}
+	#SCHDZL{
+		width: 68.6%
+	}
+	.SHDSJ{
+		margin-left: 380px
+	}
+	.SZYJZSJ{
+		margin-left: 328px
+	}
+
+}
+
+/*在768 和991 像素之间的屏幕里，小屏幕，主要是PAD*/
+@media (min-width: 768px) and (max-width: 991px) {
+	#HDSJ,#ZZJSSJ{
+		width: 21.5%
+	}
+	.radio-inline{
+		width: 14%
+	}
+	#SCHDZL{
+		width:56.5%
+	}
+	.SHDSJ{
+
+	}
+	.SZYJZSJ{
+		
+	}
+
+}

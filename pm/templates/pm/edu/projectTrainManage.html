@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>长润企业管理系统（WMIS）</title>
+<link rel="stylesheet" href="{% static 'pm/css/base.css' %}">
+<link rel="stylesheet" href="{% static 'pm/css/platform.css' %}">
+<link rel="stylesheet" href="{% static 'pm/css/custom/uimaker/easyui.css' %}">
+<link rel="stylesheet" href="{% static 'pm/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div id="pf-hd">
+            <div class="pf-logo">
+                <h1 class="logo">徐汇区干部培训管理平台</h1>
+            </div>
+
+            <div class="pf-nav-wrap">
+              <div class="pf-nav-ww">
+                <ul class="pf-nav">
+                  <li class="pf-nav-item home " data-menu="sys-manage">
+                      <a href="{% url 'pm:teacher' %}">
+                          <span class="iconfont">&#xe63e;</span>
+                          <span class="pf-nav-title">&nbsp&nbsp我</span>
+                      </a>
+                  </li>
+                  <li class="pf-nav-item home" data-menu="sys-manage">
+                      <a href="{% url 'pm:PM' %}">
+                          <span class="iconfont">&#xe6bf;</span>
+                          <span class="pf-nav-title">项目管理</span>
+                      </a>
+                  </li>
+                  <li class="pf-nav-item home " data-menu="sys-manage">
+                      <a href="{% url 'pm:CM' %}">
+                          <span class="iconfont">&#xe6d1;</span>
+                          <span class="pf-nav-title">班级管理</span>
+                      </a>
+                  </li>
+                  <li class="pf-nav-item home current" data-menu="sys-manage">
+                      <a href="{% url 'pm:projectTrainManage' %}">
+                          <span class="iconfont">&#xe6ac;</span>
+                          <span class="pf-nav-title">培训管理</span>
+                      </a>
+                  </li>
+                  <li class="pf-nav-item home" data-menu="sys-manage">
+                      <a href="{% url 'pm:activityMain' %}">
+                          <span class="iconfont">&#xe65c;</span>
+                          <span class="pf-nav-title">活动管理</span>
+                      </a>
+                  </li>
+                  <li class="pf-nav-item project" data-menu="org-manage">
+                      <a href="{% url 'pm:joinact' %}">
+                          <span class="iconfont">&#xe6a7;</span>
+                          <span class="pf-nav-title">活动参与</span>
+                      </a>
+                  </li>
+                  <li class="pf-nav-item static" data-menu="main-data">
+                      <a href="{% url 'pm:credit' %}">
+                          <span class="iconfont">&#xe65f;</span>
+                          <span class="pf-nav-title">学分统计</span>
+                      </a>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+
+
+
+            <div class="pf-user">
+                <div class="pf-user-photo">
+                    <img src="{% static 'pm/images/main/user.png' %}" alt="">
+                </div>
+                <h4 class="pf-user-name ellipsis">沈强华</h4>
+                <i class="iconfont xiala">&#xe607;</i>
+
+                <div class="pf-user-panel">
+                    <ul class="pf-user-opt">
+                        <li>
+                            <a href="javascript:;">
+                                <i class="iconfont">&#xe60d;</i>
+                                <span class="pf-opt-name">用户信息</span>
+                            </a>
+                        </li>
+                        <li class="pf-modify-pwd">
+                            <a href="http://www.uimaker.com">
+                                <i class="iconfont">&#xe634;</i>
+                                <span class="pf-opt-name">修改密码</span>
+                            </a>
+                        </li>
+                        <li class="pf-logout">
+                            <a href="login.html">
+                                <i class="iconfont">&#xe60e;</i>
+                                <span class="pf-opt-name">退出</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="pf-bd">
+            <div id="pf-sider">
+                <h2 class="pf-model-name">
+                    <span class="iconfont">&#xe6ac;</span>
+                    <span class="pf-name">培训管理</span>
+                    <span class="toggle-icon"></span>
+                </h2>
+                <ul class="sider-nav" >
+                     <li >
+                        <a href="#" rel="{% url 'pm:projectResults' %}">
+                            <span class="iconfont sider-nav-icon">&#xe6d9;</span>
+                            <span class="sider-nav-title">项目成果</span>
+                            <i class="iconfont">&#xe642;</i>
+                        </a>
+
+                     </li>
+                     <li >
+                        <a href="#" rel="{% url 'pm:currentProject' %}">
+                            <span class="iconfont sider-nav-icon">&#xe64a;</span>
+                            <span class="sider-nav-title">项目活动</span>
+                            <i class="iconfont">&#xe642;</i>
+                        </a>
+
+                     </li>
+                     <li >
+                        <a href="#" rel="{% url 'pm:projectSummary' %}">
+                            <span class="iconfont sider-nav-icon">&#xe6a6;</span>
+                            <span class="sider-nav-title">项目总结</span>
+                            <i class="iconfont">&#xe642;</i>
+                        </a>
+
+                     </li>
+
+                 </ul>
+
+
+            </div>
+
+            <div id="pf-page">
+                <div id="tabs" class="easyui-tabs1" style="width:100%;height:100%;" >
+                  <div title="培训管理" style="padding:10px 5px 5px 10px;">
+                    <iframe class="page-iframe" src="{% url 'pm:eduQuery' %}" frameborder="no"   border="no" height="100%" width="100%" scrolling="auto"></iframe>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="pf-ft">
+            <div class="system-name">
+              <i class="iconfont">&#xe6fe;</i>
+              <span>长润企业管理系统（WMIS）&nbsp;v1.0.3</span>
+            </div>
+            <div class="copyright-name">
+              <span>CopyRight&nbsp;2017&nbsp;&nbsp;上海长润信息技术有限公司&nbsp;版权所有</span>
+              <i class="iconfont" >&#xe6ff;</i>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="{% static 'pm/script/JQueryUI/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'pm/script/JQueryUI/jquery.easyui.min.js' %}"></script>
+    <!-- <script type="text/javascript" src="js/menu.js"></script> -->
+    <script type="text/javascript" src="{% static 'pm/script/js/main.js' %}"></script>
+    <script type="text/javascript" src="{% static 'pm/script/js/base.js' %}"></script>
+    <!--[if IE 7]>
+      <script type="text/javascript">
+        $(window).resize(function(){
+          $('#pf-bd').height($(window).height()-76);
+        }).resize();
+        
+      </script>
+    <![endif]-->  
+
+    
+    <script type="text/javascript">
+    
+
+    $('.easyui-tabs1').tabs({
+      tabHeight: 44,
+      onSelect:function(title,index){
+        var currentTab = $('.easyui-tabs1').tabs("getSelected");
+        if(currentTab.find("iframe") && currentTab.find("iframe").size()){
+            currentTab.find("iframe").attr("src",currentTab.find("iframe").attr("src"));
+        }
+      }
+    })
+    $(window).resize(function(){
+          $('.tabs-panels').height($("#pf-page").height()-46);
+          $('.panel-body').height($("#pf-page").height()-76)
+    }).resize();
+
+    var page = 0,
+        pages = ($('.pf-nav').height() / 70) - 1;
+
+    if(pages === 0){
+      $('.pf-nav-prev,.pf-nav-next').hide();
+    }
+    $(document).on('click', '.pf-nav-prev,.pf-nav-next', function(){
+
+
+      if($(this).hasClass('disabled')) return;
+      if($(this).hasClass('pf-nav-next')){
+        page++;
+        $('.pf-nav').stop().animate({'margin-top': -70*page}, 200);
+        if(page == pages){
+          $(this).addClass('disabled');
+          $('.pf-nav-prev').removeClass('disabled');
+        }else{
+          $('.pf-nav-prev').removeClass('disabled');
+        }
+        
+      }else{
+        page--;
+        $('.pf-nav').stop().animate({'margin-top': -70*page}, 200);
+        if(page == 0){
+          $(this).addClass('disabled');
+          $('.pf-nav-next').removeClass('disabled');
+        }else{
+          $('.pf-nav-next').removeClass('disabled');
+        }
+        
+      }
+    })
+
+    // setTimeout(function(){
+    //    $('.tabs-panels').height($("#pf-page").height()-46);
+    //    $('.panel-body').height($("#pf-page").height()-76)
+    // }, 200)
+    </script>
+</body> 
+</html>
