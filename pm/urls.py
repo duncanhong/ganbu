@@ -69,4 +69,7 @@ urlpatterns = [
     url(r'^creditStatistics/$', views.credit_stats, name='creditStatistics'),
     # ex: /pm/personCreditGainCase/
     url(r'^personCreditGainCase/$', views.credit_gain, name='personCreditGainCase'),
+
+    # ex: /pm/success/
+    url(r'^success/$', views.success, name='success'),
 ]

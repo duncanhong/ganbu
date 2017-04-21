@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.utils import timezone
+from pm.models import ProjectManage, ActivityManage
 
 
 def project_index(request):
@@ -10,7 +11,7 @@ def project_index(request):
 
 
 def project_query(request):
-    context = {}
+    context = {"project_list": ProjectManage.objects.all()}
     return render(request, 'pm/project/projectQuery.html', context)
 
 
@@ -80,8 +81,13 @@ def activity_index(request):
 
 
 def add_online_activity(request):
-    context = {}
-    return render(request, 'pm/activity/addOnlineActives.html', context)
+    if request.method == "GET":
+        context = {}
+        return render(request, 'pm/activity/addOnlineActives.html', context)
+    else:
+        entry = ActivityManage(name=request.POST["name"], time=request.POST["time"], type=request.POST["type"])
+        entry.save()
+        return HttpResponseRedirect(reverse('pm:success'))
 
 
 def add_offline_activity(request):
@@ -147,3 +153,8 @@ def credit_stats(request):
 def credit_gain(request):
     context = {}
     return render(request, 'pm/credit/personCreditGainCase.html', context)
+
+
+def success(request):
+    context = {}
+    return render(request, 'pm/success.html', context)

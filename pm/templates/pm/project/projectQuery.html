@@ -189,9 +189,18 @@
                 
                 });
             }
+            {% for project in project_list %}
+                rows.push({
+                    XMMC: "{{ project.name }}",
+                    XMSJ: "{{ project.time }}",
+                    XF: "{{ project.credit }}",
+                    PXXS: "{{ project.style }}",
+                    status: "{{ project.status }}"
+                });
+            {% endfor %}
             return rows;
         }
-        
+
         $(function(){
             $('#dg').datagrid({data:getData()}).datagrid('clientPaging');
         });        

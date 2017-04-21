@@ -47,30 +47,32 @@
 					</blockquote>
 				</div>
 				<hr>
+				<form action="{% url 'pm:addOnlineActives' %}" method="post">
+				{% csrf_token %}
 				<div style="border:1px solid #F1F1F1;width: 90%;margin: 0 auto;">
 					<div class="conditions" style="padding:20px 60px;">
 			            <span class="con-span" style="font-size: 14px;">活动名称 : </span><input class="easyui-textbox" type="text" id="name" name="name" value="请输入活动名称" style="width:90%"></input>
 			        </div>
 			        <div class="conditions" style="padding:0px 60px;">
-			        	<span class="con-span" style="font-size: 14px">活动时间 : </span><input id="HDSJ" class="easyui-datetimebox" "></input>
+                                    <span class="con-span" style="font-size: 14px">活动时间 : </span><input id="HDSJ" class="easyui-datetimebox" name="time"></input>
 			            <span class="con-span" style="font-size: 14px">作者截止日期 : </span><input id="ZZJSSJ" class="easyui-datetimebox" "></input>
 			        </div>
 			        <div class="conditions" style="padding:20px 60px;">
 			        <span class="con-span" style="font-size: 14px">活动类别 : </span>
 			        	<label class="radio-inline" >
-							<input type="radio" id="type" name="type" value="radiobutton" checked="true">专题报告
+							<input type="radio" id="type" name="type" value="专题报告" checked="true">专题报告
 						</label>
 						<label class="radio-inline" > 
-							<input type="radio" id="type" name="type">分组研讨
+							<input type="radio" id="type" name="type" value="分组研讨">分组研讨
 						</label>
 						<label class="radio-inline" >
-							<input type="radio" id="type" name="type">主题论坛
+							<input type="radio" id="type" name="type" value="主题论坛">主题论坛
 						</label>
 						<label class="radio-inline" >
-							<input type="radio" id="type" name="type">学习观摩
+							<input type="radio" id="type" name="type" value="学习观摩">学习观摩
 						</label>
 						<label class="radio-inline" >
-							<input type="radio" id="type" name="type">其他
+							<input type="radio" id="type" name="type" value="其他">其他
 						</label>
 					</div>
 					<div class="conditions" style="padding:0px 60px;">
@@ -91,9 +93,11 @@
 			        <div style="text-align: center;margin-bottom: 20px">
 				        <a href="#" class="easyui-linkbutton" >取消</a>
 		           		<a href="#" class="easyui-linkbutton" data-options="selected:true">提交</a>
+					<input type="submit" value="Submit" />
 			        </div>
 			        
 			        </div>
+                                </form>
 				</div>
 		</div>
 
